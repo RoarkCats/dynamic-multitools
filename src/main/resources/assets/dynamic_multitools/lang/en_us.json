@@ -1,0 +1,13 @@
+{
+  "itemGroup.dynamic_multitools.main": "Dynamic Multitools",
+
+  "item.dynamic_multitools.dolabra": "Dolabra",
+
+  "dynamic_multitools.configuration.title": "Example Mod Configs",
+  "dynamic_multitools.configuration.section.examplemod.common.toml": "Example Mod Configs",
+  "dynamic_multitools.configuration.section.examplemod.common.toml.title": "Example Mod Configs",
+  "dynamic_multitools.configuration.items": "Item List",
+  "dynamic_multitools.configuration.logDirtBlock": "Log Dirt Block",
+  "dynamic_multitools.configuration.magicNumberIntroduction": "Magic Number Text",
+  "dynamic_multitools.configuration.magicNumber": "Magic Number"
+}
