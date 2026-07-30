@@ -1,7 +1,0 @@
-{
-    "parent": "item/handheld",
-    "textures": {
-        "layer0": "dynamic_multitools:item/tools/dolabra_rod",
-        "layer1": "dynamic_multitools:item/tools/dolabra_head"
-    }
-}
