@@ -1,6 +1,6 @@
 package com.roarkcats.dynamicmultitools.datagen;
 
-import com.roarkcats.dynamicmultitools.item.Items;
+import com.roarkcats.dynamicmultitools.item.ModItems;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -30,7 +30,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        layerlessItem(Items.DOLABRA.get())
+        layerlessItem(ModItems.DOLABRA.get())
                 .texture("layer0", modLoc("item/tools/dolabra_rod"))
                 .texture("layer1", modLoc("item/tools/dolabra_head"));
     }

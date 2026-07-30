@@ -1,6 +1,6 @@
 package com.roarkcats.dynamicmultitools.datagen;
 
-import com.roarkcats.dynamicmultitools.item.Items;
+import com.roarkcats.dynamicmultitools.item.ModItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
@@ -23,9 +23,9 @@ public class ModItemTagProvider extends ItemTagsProvider {
     protected void addTags(HolderLookup.Provider provider) {
 
         tag(ItemTags.PICKAXES)
-                .add(Items.DOLABRA.get());
+                .add(ModItems.DOLABRA.get());
 
         tag(ItemTags.AXES)
-                .add(Items.DOLABRA.get());
+                .add(ModItems.DOLABRA.get());
     }
 }

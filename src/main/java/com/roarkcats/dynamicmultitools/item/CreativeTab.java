@@ -17,9 +17,9 @@ public class CreativeTab {
     public static final Supplier<CreativeModeTab> DYNAMIC_MULTITOOLS_TAB = CREATIVE_TAB.register("main", () ->
         CreativeModeTab.builder()
                 .title(Component.translatable("itemGroup."+MODID+".main"))
-                .icon(() -> Items.DOLABRA.get().getDefaultInstance())
+                .icon(() -> ModItems.DOLABRA.get().getDefaultInstance())
                 .displayItems((displayParameters, output) -> {
-                    output.accept(Items.DOLABRA);
+                    output.accept(ModItems.DOLABRA);
                 })
                 .build()
     );

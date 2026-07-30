@@ -1,13 +1,12 @@
 package com.roarkcats.dynamicmultitools;
 
 import com.roarkcats.dynamicmultitools.item.CreativeTab;
-import com.roarkcats.dynamicmultitools.item.Items;
+import com.roarkcats.dynamicmultitools.item.ModItems;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
 
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -16,7 +15,6 @@ import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
@@ -34,7 +32,7 @@ public class DynamicMultitools {
         modEventBus.addListener(this::commonSetup);
 
         // Register items
-        Items.register(modEventBus);
+        ModItems.register(modEventBus);
         CreativeTab.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in.
