@@ -1,7 +1,9 @@
 package com.roarkcats.dynamicmultitools;
 
+import com.roarkcats.dynamicmultitools.component.ModDataComponent;
 import com.roarkcats.dynamicmultitools.item.CreativeTab;
 import com.roarkcats.dynamicmultitools.item.ModItems;
+import com.roarkcats.dynamicmultitools.util.ToolTierCollector;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -17,12 +19,10 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 
-// The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(DynamicMultitools.MODID)
 public class DynamicMultitools {
-    // Define mod id in a common place for everything to reference
+
     public static final String MODID = "dynamic_multitools";
-    // Directly reference a slf4j logger
     public static final Logger LOGGER = LogUtils.getLogger();
 
     // The constructor for the mod class is the first code that is run when your mod is loaded.
@@ -32,6 +32,7 @@ public class DynamicMultitools {
         modEventBus.addListener(this::commonSetup);
 
         // Register items
+        ModDataComponent.register(modEventBus);
         ModItems.register(modEventBus);
         CreativeTab.register(modEventBus);
 
@@ -57,10 +58,10 @@ public class DynamicMultitools {
         Config.ITEM_STRINGS.get().forEach((item) -> LOGGER.info("ITEM >> {}", item));
     }
 
-    // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
-        // Do something when the server starts
         LOGGER.info("HELLO from server starting");
+
+        ToolTierCollector.getAllTiers().forEach((tier) -> LOGGER.info("TIER >> {}", tier));
     }
 }
