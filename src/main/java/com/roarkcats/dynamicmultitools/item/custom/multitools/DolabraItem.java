@@ -2,18 +2,12 @@ package com.roarkcats.dynamicmultitools.item.custom.multitools;
 
 import com.roarkcats.dynamicmultitools.item.custom.DynamicDiggerItem;
 import com.roarkcats.dynamicmultitools.util.Tags;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.component.DyedItemColor;
+import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.component.Tool;
-import net.neoforged.neoforge.common.ItemAbilities;
-import net.neoforged.neoforge.common.ItemAbility;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-
-import static net.minecraft.core.component.DataComponents.DYED_COLOR;
 
 public class DolabraItem extends DynamicDiggerItem {
 
@@ -24,17 +18,21 @@ public class DolabraItem extends DynamicDiggerItem {
 //    }
 
     public DolabraItem(Tier tier, Properties properties) {
-        this(tier, new DyedItemColor(-1, false), properties);
+        this(tier, null, properties);
     }
     public DolabraItem(Tier tier, DyedItemColor color, Properties properties) {
-        super(tier, dolabraTool(tier), properties.component(DYED_COLOR, color).attributes(DynamicDiggerItem.attributes(tier, 3F, -2.8F)));
+        super(tier, dolabraTool(tier), color, properties.attributes(dolabraAttributes(tier)));
     }
 
+    // Helpers
     public static Tool dolabraTool(Tier tier) {
         return DynamicDiggerItem.tool(List.of(
                 DynamicDiggerItem.toolRule(tier.getIncorrectBlocksForDrops()),
-                DynamicDiggerItem.toolRule(Tags.Blocks.MINEABLE_WITH_DOLABRA, tier.getSpeed()*0.75F)
+                DynamicDiggerItem.toolRule(Tags.Blocks.MINEABLE_WITH_DOLABRA, tier.getSpeed()*0.8F)
         ));
+    }
+    public static ItemAttributeModifiers dolabraAttributes(Tier tier) {
+        return DynamicDiggerItem.attributes(tier, 3F, -2.8F);
     }
 
 //    public boolean canPerformAction(ItemStack stack, ItemAbility itemAbility) {

@@ -10,19 +10,21 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.component.DyedItemColor;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.component.Tool;
 import net.minecraft.world.level.block.Block;
 
+import javax.annotation.Nullable;
 import java.util.List;
 
 public class DynamicDiggerItem extends DynamicTieredItem {
 
-    public DynamicDiggerItem(Tier tier, Tool tool, Item.Properties properties) {
-        super(tier, properties.component(DataComponents.TOOL, tool));
+    public DynamicDiggerItem(Tier tier, Tool tool, @Nullable DyedItemColor color, Item.Properties properties) {
+        super(tier, color, properties.component(DataComponents.TOOL, tool));
     }
-    public DynamicDiggerItem(Tier tier, TagKey<Block> block, Item.Properties properties) {
-        super(tier, properties.component(DataComponents.TOOL, tier.createToolProperties(block)));
+    public DynamicDiggerItem(Tier tier, TagKey<Block> block, @Nullable DyedItemColor color, Item.Properties properties) {
+        super(tier, color, properties.component(DataComponents.TOOL, tier.createToolProperties(block)));
     }
 
 
