@@ -3,6 +3,14 @@
 
   "item.dynamic_multitools.dolabra": "Dolabra",
 
+  "dynamic_tier.minecraft.wooden": "Wooden",
+  "dynamic_tier.minecraft.stone": "Stone",
+  "dynamic_tier.minecraft.iron": "Iron",
+  "dynamic_tier.minecraft.golden": "Golden",
+  "dynamic_tier.minecraft.diamond": "Diamond",
+  "dynamic_tier.minecraft.netherite": "Netherite",
+  "dynamic_tier.ethium_reimagined.ethium": "Ethium",
+
   "dynamic_multitools.configuration.title": "Example Mod Configs",
   "dynamic_multitools.configuration.section.examplemod.common.toml": "Example Mod Configs",
   "dynamic_multitools.configuration.section.examplemod.common.toml.title": "Example Mod Configs",

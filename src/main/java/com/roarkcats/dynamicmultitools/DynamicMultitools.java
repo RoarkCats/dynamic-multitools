@@ -1,9 +1,16 @@
 package com.roarkcats.dynamicmultitools;
 
 import com.roarkcats.dynamicmultitools.component.ModDataComponent;
+import com.roarkcats.dynamicmultitools.datapack.DynamicTier;
 import com.roarkcats.dynamicmultitools.item.CreativeTab;
 import com.roarkcats.dynamicmultitools.item.ModItems;
 import com.roarkcats.dynamicmultitools.util.ToolTierCollector;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.CreativeModeTab;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.registries.DataPackRegistryEvent;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -37,8 +44,7 @@ public class DynamicMultitools {
         CreativeTab.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in.
-        // Note that this is necessary if and only if we want *this* class to respond directly to events.
-        // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
+        // (necessary if and only if we want *this* class to respond directly to events.)
         NeoForge.EVENT_BUS.register(this);
 
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
@@ -58,10 +64,30 @@ public class DynamicMultitools {
         Config.ITEM_STRINGS.get().forEach((item) -> LOGGER.info("ITEM >> {}", item));
     }
 
+    @EventBusSubscriber(modid = MODID)
+    public static class ClientModEvents {
+
+        public static final ResourceKey<Registry<DynamicTier>> DYNAMIC_TIER_REGISTRY =
+                ResourceKey.createRegistryKey(ResourceLocation.fromNamespaceAndPath(MODID, "dynamic_tier"));
+
+        @SubscribeEvent
+        public static void addRegistries(DataPackRegistryEvent.NewRegistry event) {
+            event.dataPackRegistry(
+                    DYNAMIC_TIER_REGISTRY,
+                    DynamicTier.CODEC,
+                    DynamicTier.CODEC,
+                    builder -> builder.maxId(256)
+            );
+        }
+    }
+
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
-        LOGGER.info("HELLO from server starting");
+        LOGGER.info("Server starting");
 
         ToolTierCollector.getAllTiers().forEach((tier) -> LOGGER.info("TIER >> {}", tier));
+        event.getServer().registryAccess().registryOrThrow(ClientModEvents.DYNAMIC_TIER_REGISTRY).forEach((tier) -> {
+            LOGGER.info("DYNAMIC TIER >> {}", tier.material());
+        });
     }
 }

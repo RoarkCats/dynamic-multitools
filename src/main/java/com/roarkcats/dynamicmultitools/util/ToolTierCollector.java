@@ -1,5 +1,7 @@
 package com.roarkcats.dynamicmultitools.util;
 
+import com.mojang.serialization.Codec;
+import com.roarkcats.dynamicmultitools.DynamicMultitools;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Tier;
@@ -18,6 +20,11 @@ public class ToolTierCollector {
         return discoveredTiers;
     }
 
+    public static Tier searchForTier(String regex) {
+        if (regex == null) {return null;}
+        return getAllTiers().stream().filter(tier -> tier.toString().toLowerCase().matches(regex)).findFirst().orElse(null);
+    }
+
     private static void discoverTiers() {
         // Scan all items registered in the game for Tiers
         for (Item item : BuiltInRegistries.ITEM) {
@@ -27,4 +34,13 @@ public class ToolTierCollector {
             }
         }
     }
+
+    public static final Codec<Tier> TIER_CODEC = Codec.STRING.xmap(
+            str -> {
+                Tier tier = searchForTier(str);
+                if (tier == null) {DynamicMultitools.LOGGER.warn("Tier not found: {}", str);}
+                return tier;
+            },
+            Tier::toString
+    );
 }
