@@ -19,29 +19,29 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     @Override
     protected void buildRecipes(RecipeOutput recipeOutput) {
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.DOLABRA.get())
-                .pattern("LmR").pattern(" s ").pattern(" s ")
-                .define('L', Items.IRON_AXE)
-                .define('R', Items.IRON_PICKAXE)
-                .define('m', Tags.Items.INGOTS_IRON)
-                .define('s', Tags.Items.RODS_WOODEN)
-                .unlockedBy("has_iron_ingot", has(Tags.Items.INGOTS_IRON))
-                .save(recipeOutput);
-
-        SmithingTransformRecipeBuilder.smithing(
-                Ingredient.of(Items.IRON_AXE), // template
-                Ingredient.of(Items.IRON_PICKAXE), // gear
-                Ingredient.of(Tags.Items.INGOTS_IRON), // material
-                RecipeCategory.TOOLS, ModItems.DOLABRA.get())
-                .unlocks("has_iron_ingot", has(Tags.Items.INGOTS_IRON))
-                .save(recipeOutput, ModItems.DOLABRA.getRegisteredName() + "_smithing_pick");
-
-        SmithingTransformRecipeBuilder.smithing(
-                        Ingredient.of(Items.IRON_PICKAXE), // template
-                        Ingredient.of(Items.IRON_AXE), // gear
-                        Ingredient.of(Tags.Items.INGOTS_IRON), // material
-                        RecipeCategory.TOOLS, ModItems.DOLABRA.get())
-                .unlocks("has_iron_ingot", has(Tags.Items.INGOTS_IRON))
-                .save(recipeOutput, ModItems.DOLABRA.getRegisteredName() + "_smithing_axe");
+//        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.DOLABRA.get())
+//                .pattern("LmR").pattern(" s ").pattern(" s ")
+//                .define('L', Items.IRON_AXE)
+//                .define('R', Items.IRON_PICKAXE)
+//                .define('m', Tags.Items.INGOTS_IRON)
+//                .define('s', Tags.Items.RODS_WOODEN)
+//                .unlockedBy("has_iron_ingot", has(Tags.Items.INGOTS_IRON))
+//                .save(recipeOutput);
+//
+//        SmithingTransformRecipeBuilder.smithing(
+//                Ingredient.of(Items.IRON_AXE), // template
+//                Ingredient.of(Items.IRON_PICKAXE), // gear
+//                Ingredient.of(Tags.Items.INGOTS_IRON), // material
+//                RecipeCategory.TOOLS, ModItems.DOLABRA.get())
+//                .unlocks("has_iron_ingot", has(Tags.Items.INGOTS_IRON))
+//                .save(recipeOutput, ModItems.DOLABRA.getRegisteredName() + "_smithing_pick");
+//
+//        SmithingTransformRecipeBuilder.smithing(
+//                        Ingredient.of(Items.IRON_PICKAXE), // template
+//                        Ingredient.of(Items.IRON_AXE), // gear
+//                        Ingredient.of(Tags.Items.INGOTS_IRON), // material
+//                        RecipeCategory.TOOLS, ModItems.DOLABRA.get())
+//                .unlocks("has_iron_ingot", has(Tags.Items.INGOTS_IRON))
+//                .save(recipeOutput, ModItems.DOLABRA.getRegisteredName() + "_smithing_axe");
     }
 }

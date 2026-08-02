@@ -1,22 +1,19 @@
 package com.roarkcats.dynamicmultitools.item;
 
+import com.roarkcats.dynamicmultitools.datapack.DynamicTier;
 import com.roarkcats.dynamicmultitools.item.custom.multitools.DolabraItem;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.component.DyedItemColor;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
+import java.util.Comparator;
 import java.util.function.Supplier;
 
-import static com.roarkcats.dynamicmultitools.DynamicMultitools.ClientModEvents.DYNAMIC_TIER_REGISTRY;
-import static com.roarkcats.dynamicmultitools.DynamicMultitools.LOGGER;
 import static com.roarkcats.dynamicmultitools.DynamicMultitools.MODID;
-import static com.roarkcats.dynamicmultitools.component.ModDataComponent.ENCHANTABILITY;
-import static com.roarkcats.dynamicmultitools.component.ModDataComponent.REPAIR_MATERIAL;
-import static net.minecraft.core.component.DataComponents.*;
+import static com.roarkcats.dynamicmultitools.datapack.Server.DYNAMIC_TIER_REGISTRY;
 
 public class CreativeTab {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_TAB =
@@ -28,7 +25,7 @@ public class CreativeTab {
                 .icon(() -> ModItems.DOLABRA.get().getDefaultInstance())
                 .displayItems((displayParameters, output) -> {
                     displayParameters.holders().lookup(DYNAMIC_TIER_REGISTRY).ifPresent(dynamicTierRegistry -> {
-                        dynamicTierRegistry.listElements().map(Holder.Reference::value).forEach(tier -> {
+                        dynamicTierRegistry.listElements().map(Holder.Reference::value).sorted(Comparator.comparingDouble(DynamicTier::getSpeed)).forEach(tier -> {
                             output.accept(DolabraItem.createTieredStack(ModItems.DOLABRA.toStack(), tier));
                         });
                     });

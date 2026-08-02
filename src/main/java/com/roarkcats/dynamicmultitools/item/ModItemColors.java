@@ -9,7 +9,7 @@ import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 
 import static com.roarkcats.dynamicmultitools.DynamicMultitools.MODID;
 
-@EventBusSubscriber(modid = MODID) @OnlyIn(Dist.CLIENT)
+@EventBusSubscriber(modid = MODID, value = {Dist.CLIENT})
 public class ModItemColors {
 
     private static final int DEFAULT = -1;
