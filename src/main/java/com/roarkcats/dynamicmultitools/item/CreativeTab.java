@@ -42,18 +42,14 @@ public class CreativeTab {
                         dynamicTierRegistry.listElements().map(Holder.Reference::value).forEach(tier -> {
                             var dolabra = ModItems.DOLABRA.toStack();
                             // move this all to DynamicTiered|Digger|DolabraItem function line to create an instance from a DynamicTier
-                            // also make them support DynamicTier as well as normal Tier
                             try {
                                 dolabra.set(ITEM_NAME, Component.translatable("dynamic_tier." + tier.modId() + "." + tier.material()).append(" ").append(Component.translatable("item." + MODID + ".dolabra")));
                                 dolabra.set(DYED_COLOR, new DyedItemColor(tier.color(), false));
                                 dolabra.set(MAX_DAMAGE, tier.getDurability());
                                 dolabra.set(ENCHANTABILITY, tier.getEnchantability());
                                 dolabra.set(REPAIR_MATERIAL, tier.getRepairIngredient());
-                                dolabra.set(ATTRIBUTE_MODIFIERS, DolabraItem.attributes(3F + tier.getDamageBonus(), -2.8F));
-                                dolabra.set(TOOL, DolabraItem.tool(List.of(
-                                        DolabraItem.toolRule(tier.getIncorrectBlocksForDrops()),
-                                        DolabraItem.toolRule(Tags.Blocks.MINEABLE_WITH_DOLABRA, tier.getSpeed() * 0.8F)
-                                )));
+                                dolabra.set(ATTRIBUTE_MODIFIERS, DolabraItem.dolabraAttributes(tier));
+                                dolabra.set(TOOL, DolabraItem.dolabraTool(tier));
                             } catch (Exception e) {
                                 LOGGER.error("Error creating dolabra for dynamic tier {}.{}: {}", tier.modId(), tier.material(), e);
                             }

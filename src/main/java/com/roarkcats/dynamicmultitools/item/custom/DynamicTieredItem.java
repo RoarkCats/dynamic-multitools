@@ -1,10 +1,10 @@
 package com.roarkcats.dynamicmultitools.item.custom;
 
 import com.roarkcats.dynamicmultitools.component.ModDataComponent;
+import com.roarkcats.dynamicmultitools.datapack.DynamicTier;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.component.DyedItemColor;
 import net.minecraft.world.item.crafting.Ingredient;
 
@@ -20,8 +20,8 @@ public class DynamicTieredItem extends Item {
                 .component(DataComponents.DYED_COLOR, color)
         );
     }
-    public DynamicTieredItem(Tier tier, @Nullable DyedItemColor color, Item.Properties properties) {
-        this(tier.getUses(), tier.getEnchantmentValue(), tier.getRepairIngredient(), color, properties);
+    public DynamicTieredItem(DynamicTier tier, @Nullable DyedItemColor color, Item.Properties properties) {
+        this(tier.getDurability(), tier.getEnchantability(), tier.getRepairIngredient(), color, properties);
     }
 
 
