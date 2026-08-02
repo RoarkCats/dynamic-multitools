@@ -43,16 +43,16 @@ public class CreativeTab {
                             var dolabra = ModItems.DOLABRA.toStack();
                             // move this all to DynamicTiered|Digger|DolabraItem function line to create an instance from a DynamicTier
                             // also make them support DynamicTier as well as normal Tier
-                            try { // known bug: must reference any tier otherwise tier.tierBase.get() will crash
+                            try {
                                 dolabra.set(ITEM_NAME, Component.translatable("dynamic_tier." + tier.modId() + "." + tier.material()).append(" ").append(Component.translatable("item." + MODID + ".dolabra")));
                                 dolabra.set(DYED_COLOR, new DyedItemColor(tier.color(), false));
-                                dolabra.set(MAX_DAMAGE, tier.durability().orElse(tier.tierBase().get().getUses()));
-                                dolabra.set(ENCHANTABILITY, tier.enchantability().orElse(tier.tierBase().get().getEnchantmentValue()));
-                                dolabra.set(REPAIR_MATERIAL, tier.repairIngredient().orElse(tier.tierBase().get().getRepairIngredient()));
-                                dolabra.set(ATTRIBUTE_MODIFIERS, DolabraItem.attributes(3F + tier.damageBonus().orElse(tier.tierBase().get().getAttackDamageBonus()), -2.8F));
+                                dolabra.set(MAX_DAMAGE, tier.getDurability());
+                                dolabra.set(ENCHANTABILITY, tier.getEnchantability());
+                                dolabra.set(REPAIR_MATERIAL, tier.getRepairIngredient());
+                                dolabra.set(ATTRIBUTE_MODIFIERS, DolabraItem.attributes(3F + tier.getDamageBonus(), -2.8F));
                                 dolabra.set(TOOL, DolabraItem.tool(List.of(
-                                        DolabraItem.toolRule(tier.incorrectBlocksForDrops().orElse(tier.tierBase().get().getIncorrectBlocksForDrops())),
-                                        DolabraItem.toolRule(Tags.Blocks.MINEABLE_WITH_DOLABRA, tier.speed().orElse(tier.tierBase().get().getSpeed()) * 0.8F)
+                                        DolabraItem.toolRule(tier.getIncorrectBlocksForDrops()),
+                                        DolabraItem.toolRule(Tags.Blocks.MINEABLE_WITH_DOLABRA, tier.getSpeed() * 0.8F)
                                 )));
                             } catch (Exception e) {
                                 LOGGER.error("Error creating dolabra for dynamic tier {}.{}: {}", tier.modId(), tier.material(), e);
