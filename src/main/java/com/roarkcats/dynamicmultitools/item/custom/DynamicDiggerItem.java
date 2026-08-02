@@ -17,7 +17,6 @@ import net.minecraft.world.level.block.Block;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class DynamicDiggerItem extends DynamicTieredItem {

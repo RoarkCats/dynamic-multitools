@@ -1,8 +1,13 @@
 package com.roarkcats.dynamicmultitools.item.custom;
 
-import com.roarkcats.dynamicmultitools.component.ModDataComponent;
+import static com.roarkcats.dynamicmultitools.DynamicMultitools.LOGGER;
+import static com.roarkcats.dynamicmultitools.DynamicMultitools.MODID;
+import static com.roarkcats.dynamicmultitools.component.ModDataComponent.ENCHANTABILITY;
+import static com.roarkcats.dynamicmultitools.component.ModDataComponent.REPAIR_MATERIAL;
+import static net.minecraft.core.component.DataComponents.*;
+
 import com.roarkcats.dynamicmultitools.datapack.DynamicTier;
-import net.minecraft.core.component.DataComponents;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.DyedItemColor;
@@ -15,9 +20,9 @@ public class DynamicTieredItem extends Item {
     public DynamicTieredItem(int durability, int enchantability, Ingredient repairMaterial, @Nullable DyedItemColor color, Item.Properties properties) {
         super(properties
                 .durability(durability)
-                .component(ModDataComponent.ENCHANTABILITY.get(), enchantability)
-                .component(ModDataComponent.REPAIR_MATERIAL.get(), repairMaterial)
-                .component(DataComponents.DYED_COLOR, color)
+                .component(ENCHANTABILITY.get(), enchantability)
+                .component(REPAIR_MATERIAL.get(), repairMaterial)
+                .component(DYED_COLOR, color)
         );
     }
     public DynamicTieredItem(DynamicTier tier, @Nullable DyedItemColor color, Item.Properties properties) {
@@ -30,15 +35,29 @@ public class DynamicTieredItem extends Item {
         return new DyedItemColor(rgb, false);
     }
 
+    // Tiered Instance Maker
+    public static ItemStack createTieredStack(ItemStack itemStack, DynamicTier tier, String itemType) {
+        try {
+            itemStack.set(ITEM_NAME, Component.translatable("dynamic_tier." + tier.modId() + "." + tier.material()).append(" ").append(Component.translatable("item." + MODID + "." + itemType)));
+            itemStack.set(DYED_COLOR, new DyedItemColor(tier.color(), false));
+            itemStack.set(MAX_DAMAGE, tier.getDurability());
+            itemStack.set(ENCHANTABILITY, tier.getEnchantability());
+            itemStack.set(REPAIR_MATERIAL, tier.getRepairIngredient());
+        } catch (Exception e) {
+            LOGGER.error("Error creating DynamicTieredItem for dynamic tier {}.{}: {}", tier.modId(), tier.material(), e);
+        }
+        return itemStack;
+    }
+
 
     @Override
     public int getEnchantmentValue() {
-        return this.components().getOrDefault(ModDataComponent.ENCHANTABILITY.get(), 15);
+        return this.components().getOrDefault(ENCHANTABILITY.get(), 15);
     }
 
     @Override
     public boolean isValidRepairItem(ItemStack toRepair, ItemStack repair) {
-        Ingredient repair_item = toRepair.getComponents().getOrDefault(ModDataComponent.REPAIR_MATERIAL.get(), Ingredient.EMPTY);
+        Ingredient repair_item = toRepair.getComponents().getOrDefault(REPAIR_MATERIAL.get(), Ingredient.EMPTY);
         return repair_item.test(repair) || super.isValidRepairItem(toRepair, repair);
     }
 }
