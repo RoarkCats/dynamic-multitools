@@ -43,6 +43,7 @@ public class DynamicTieredItem extends Item {
             itemStack.set(MAX_DAMAGE, tier.getDurability());
             itemStack.set(ENCHANTABILITY, tier.getEnchantability());
             itemStack.set(REPAIR_MATERIAL, tier.getRepairIngredient());
+            itemStack.applyComponents(tier.defaultComponents());
         } catch (Exception e) {
             LOGGER.error("Error creating DynamicTieredItem for dynamic tier {}.{}: {}", tier.modId(), tier.material(), e);
         }

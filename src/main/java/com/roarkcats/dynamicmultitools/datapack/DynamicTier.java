@@ -3,6 +3,7 @@ package com.roarkcats.dynamicmultitools.datapack;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.roarkcats.dynamicmultitools.util.ToolTierCollector;
+import net.minecraft.core.component.DataComponentPatch;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Tier;
@@ -29,7 +30,8 @@ public record DynamicTier(
         Optional<Ingredient> repairIngredient,
         // Extras
         Optional<Ingredient> materialIngredient,
-        Ingredient rodIngredient
+        Ingredient rodIngredient,
+        DataComponentPatch defaultComponents
 //        String texture,
 //        Ingredient pickaxeItem,
 //        Ingredient axeItem,
@@ -51,7 +53,8 @@ public record DynamicTier(
             Codec.INT.optionalFieldOf("enchantability").forGetter(DynamicTier::enchantability),
             Ingredient.CODEC.optionalFieldOf("repair_ingredient").forGetter(DynamicTier::repairIngredient),
             Ingredient.CODEC.optionalFieldOf("material_ingredient").forGetter(DynamicTier::materialIngredient),
-            Ingredient.CODEC.optionalFieldOf("rod_ingredient", DEFAULT_ROD).forGetter(DynamicTier::rodIngredient)
+            Ingredient.CODEC.optionalFieldOf("rod_ingredient", DEFAULT_ROD).forGetter(DynamicTier::rodIngredient),
+            DataComponentPatch.CODEC.optionalFieldOf("default_components", DataComponentPatch.EMPTY).forGetter(DynamicTier::defaultComponents)
     ).apply(instance, DynamicTier::new));
 
 
@@ -59,7 +62,7 @@ public record DynamicTier(
     private static final Optional X = Optional.empty();
 
     public DynamicTier(String modId, String material, int color, Tier tierBase) {
-        this(modId, material, color, Optional.of(tierBase), X,X,X,X,X,X,X, DEFAULT_ROD);
+        this(modId, material, color, Optional.of(tierBase), X,X,X,X,X,X,X, DEFAULT_ROD, DataComponentPatch.EMPTY);
     }
 
     // -- Getters --
