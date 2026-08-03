@@ -1,5 +1,6 @@
 package com.roarkcats.dynamicmultitools.datapack;
 
+import com.roarkcats.dynamicmultitools.Config;
 import com.roarkcats.dynamicmultitools.util.ToolTierCollector;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
@@ -36,13 +37,14 @@ public class Server {
     @SubscribeEvent
     public static void onServerStarting(ServerStartingEvent event) {
         LOGGER.info("Server starting");
-        ToolTierCollector.getAllTiers().forEach((tier) -> LOGGER.info("TIER >> {}", tier));
+        final boolean logTiers = Config.LOG_TIERS.getAsBoolean();
+        if (logTiers) ToolTierCollector.getAllTiers().forEach((tier) -> LOGGER.info("TIER >> {}", tier));
 
         var recipeManager = event.getServer().getRecipeManager();
         List<RecipeHolder<?>> generatedRecipes = new ArrayList<>();
 
         event.getServer().registryAccess().registryOrThrow(DYNAMIC_TIER_REGISTRY).forEach((tier) -> {
-            LOGGER.info("DYNAMIC TIER >> {}", tier.material());
+            if (logTiers) LOGGER.info("DYNAMIC TIER >> {}", tier.material());
             Recipes.generateRecipesFor(generatedRecipes, tier);
         });
 

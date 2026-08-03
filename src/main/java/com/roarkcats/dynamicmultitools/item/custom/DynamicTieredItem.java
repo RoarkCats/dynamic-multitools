@@ -6,6 +6,7 @@ import static com.roarkcats.dynamicmultitools.component.ModDataComponent.ENCHANT
 import static com.roarkcats.dynamicmultitools.component.ModDataComponent.REPAIR_MATERIAL;
 import static net.minecraft.core.component.DataComponents.*;
 
+import com.roarkcats.dynamicmultitools.Config;
 import com.roarkcats.dynamicmultitools.datapack.DynamicTier;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
@@ -40,7 +41,7 @@ public class DynamicTieredItem extends Item {
         try {
             itemStack.set(ITEM_NAME, Component.translatable("dynamic_tier." + tier.modId() + "." + tier.material()).append(" ").append(Component.translatable("item." + MODID + "." + itemType)));
             itemStack.set(DYED_COLOR, new DyedItemColor(tier.color(), false));
-            itemStack.set(MAX_DAMAGE, tier.getDurability());
+            itemStack.set(MAX_DAMAGE, (int) (tier.getDurability() * Config.getConfigFloat(Config.MULTITOOL_DURABILITY_MULTIPLIER)) );
             itemStack.set(ENCHANTABILITY, tier.getEnchantability());
             itemStack.set(REPAIR_MATERIAL, tier.getRepairIngredient());
             itemStack.applyComponents(tier.defaultComponents());

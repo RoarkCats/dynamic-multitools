@@ -1,5 +1,6 @@
 package com.roarkcats.dynamicmultitools.item.custom.multitools;
 
+import com.roarkcats.dynamicmultitools.Config;
 import com.roarkcats.dynamicmultitools.datapack.DynamicTier;
 import com.roarkcats.dynamicmultitools.item.custom.DynamicDiggerItem;
 import com.roarkcats.dynamicmultitools.item.custom.DynamicTieredItem;
@@ -34,7 +35,7 @@ public class DolabraItem extends DynamicDiggerItem {
     public static Tool dolabraTool(DynamicTier tier) {
         return DynamicDiggerItem.tool(List.of(
                 DynamicDiggerItem.toolRule(tier.getIncorrectBlocksForDrops()),
-                DynamicDiggerItem.toolRule(Tags.Blocks.MINEABLE_WITH_DOLABRA, tier.getSpeed()*0.8F)
+                DynamicDiggerItem.toolRule(Tags.Blocks.MINEABLE_WITH_DOLABRA, tier.getSpeed() * Config.getConfigFloat(Config.MULTITOOL_SPEED_MULTIPLIER))
         ));
     }
     public static ItemAttributeModifiers dolabraAttributes(DynamicTier tier) {
