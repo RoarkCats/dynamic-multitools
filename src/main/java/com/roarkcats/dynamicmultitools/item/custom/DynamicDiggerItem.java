@@ -21,11 +21,11 @@ import java.util.List;
 
 public class DynamicDiggerItem extends DynamicTieredItem {
 
-    public DynamicDiggerItem(DynamicTier tier, Tool tool, @Nullable DyedItemColor color, Item.Properties properties) {
-        super(tier, color, properties.component(DataComponents.TOOL, tool));
+    public DynamicDiggerItem(DynamicTier tier, Tool tool, Item.Properties properties) {
+        super(tier, properties.component(DataComponents.TOOL, tool));
     }
-    public DynamicDiggerItem(DynamicTier tier, TagKey<Block> block, @Nullable DyedItemColor color, Item.Properties properties) {
-        super(tier, color, properties.component(DataComponents.TOOL, tool(tier, block)));
+    public DynamicDiggerItem(DynamicTier tier, TagKey<Block> block, Item.Properties properties) {
+        super(tier, properties.component(DataComponents.TOOL, tool(tier, block)));
     }
 
 

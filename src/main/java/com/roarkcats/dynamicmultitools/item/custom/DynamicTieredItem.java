@@ -2,8 +2,7 @@ package com.roarkcats.dynamicmultitools.item.custom;
 
 import static com.roarkcats.dynamicmultitools.DynamicMultitools.LOGGER;
 import static com.roarkcats.dynamicmultitools.DynamicMultitools.MODID;
-import static com.roarkcats.dynamicmultitools.component.ModDataComponent.ENCHANTABILITY;
-import static com.roarkcats.dynamicmultitools.component.ModDataComponent.REPAIR_MATERIAL;
+import static com.roarkcats.dynamicmultitools.component.ModDataComponent.*;
 import static net.minecraft.core.component.DataComponents.*;
 
 import com.roarkcats.dynamicmultitools.Config;
@@ -15,32 +14,28 @@ import net.minecraft.world.item.component.DyedItemColor;
 import net.minecraft.world.item.crafting.Ingredient;
 
 import javax.annotation.Nullable;
+import java.util.List;
 
 public class DynamicTieredItem extends Item {
 
-    public DynamicTieredItem(int durability, int enchantability, Ingredient repairMaterial, @Nullable DyedItemColor color, Item.Properties properties) {
+    public DynamicTieredItem(int durability, int enchantability, Ingredient repairMaterial, @Nullable List<Integer> colors, Item.Properties properties) {
         super(properties
                 .durability(durability)
                 .component(ENCHANTABILITY.get(), enchantability)
                 .component(REPAIR_MATERIAL.get(), repairMaterial)
-                .component(DYED_COLOR, color)
+                .component(TEXTURE_TINTS.get(), colors)
         );
     }
-    public DynamicTieredItem(DynamicTier tier, @Nullable DyedItemColor color, Item.Properties properties) {
-        this(tier.getDurability(), tier.getEnchantability(), tier.getRepairIngredient(), color, properties);
+    public DynamicTieredItem(DynamicTier tier, Item.Properties properties) {
+        this(tier.getDurability(), tier.getEnchantability(), tier.getRepairIngredient(), List.of(tier.rodColor(), tier.color()), properties);
     }
 
-
-    // Helper
-    public static DyedItemColor color(int rgb) {
-        return new DyedItemColor(rgb, false);
-    }
 
     // Tiered Instance Maker
     public static ItemStack createTieredStack(ItemStack itemStack, DynamicTier tier, String itemType) {
         try {
             itemStack.set(ITEM_NAME, Component.translatable("dynamic_tier." + tier.modId() + "." + tier.material()).append(" ").append(Component.translatable("item." + MODID + "." + itemType)));
-            itemStack.set(DYED_COLOR, new DyedItemColor(tier.color(), false));
+            itemStack.set(TEXTURE_TINTS.get(), List.of(tier.rodColor(), tier.color()));
             itemStack.set(MAX_DAMAGE, (int) (tier.getDurability() * Config.getConfigFloat(Config.MULTITOOL_DURABILITY_MULTIPLIER)) );
             itemStack.set(ENCHANTABILITY, tier.getEnchantability());
             itemStack.set(REPAIR_MATERIAL, tier.getRepairIngredient());

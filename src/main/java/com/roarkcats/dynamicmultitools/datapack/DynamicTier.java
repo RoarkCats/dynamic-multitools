@@ -20,6 +20,7 @@ public record DynamicTier(
         String modId,
         String material,
         int color,
+        int rodColor,
         Optional<Tier> tierBase, // located from string on file
         // Overrides
         Optional<Integer> durability,
@@ -44,6 +45,7 @@ public record DynamicTier(
             Codec.STRING.optionalFieldOf("mod_id", "minecraft").forGetter(DynamicTier::modId),
             Codec.STRING.fieldOf("material").forGetter(DynamicTier::material),
             Codec.INT.optionalFieldOf("color", -1).forGetter(DynamicTier::color),
+            Codec.INT.optionalFieldOf("rod_color", -1).forGetter(DynamicTier::rodColor),
             ToolTierCollector.TIER_CODEC.optionalFieldOf("tier_base").forGetter(DynamicTier::tierBase),
             // Overrides
             Codec.INT.optionalFieldOf("durability").forGetter(DynamicTier::durability),
@@ -62,7 +64,7 @@ public record DynamicTier(
     private static final Optional X = Optional.empty();
 
     public DynamicTier(String modId, String material, int color, Tier tierBase) {
-        this(modId, material, color, Optional.of(tierBase), X,X,X,X,X,X,X, DEFAULT_ROD, DataComponentPatch.EMPTY);
+        this(modId, material, color, -1, Optional.of(tierBase), X,X,X,X,X,X,X, DEFAULT_ROD, DataComponentPatch.EMPTY);
     }
 
     // -- Getters --

@@ -8,6 +8,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
+import java.util.List;
 import java.util.function.UnaryOperator;
 
 import static com.roarkcats.dynamicmultitools.DynamicMultitools.MODID;
@@ -24,6 +25,9 @@ public class ModDataComponent {
 
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> ENCHANTABILITY =
             register("enchantability", builder -> builder.persistent(Codec.INT));
+
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<List<Integer>>> TEXTURE_TINTS =
+            register("texture_tints", builder -> builder.persistent(Codec.list(Codec.INT)));
     // -- -- -- -- -- -- -- --
 
     private static <T> DeferredHolder<DataComponentType<?>, DataComponentType<T>>

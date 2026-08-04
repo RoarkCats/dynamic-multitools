@@ -25,10 +25,7 @@ public class DolabraItem extends DynamicDiggerItem {
 //    }
 
     public DolabraItem(DynamicTier tier, Properties properties) {
-        this(tier, null, properties);
-    }
-    public DolabraItem(DynamicTier tier, DyedItemColor color, Properties properties) {
-        super(tier, dolabraTool(tier), color, properties.attributes(dolabraAttributes(tier)));
+        super(tier, dolabraTool(tier), properties.attributes(dolabraAttributes(tier)));
     }
 
     // Helpers
