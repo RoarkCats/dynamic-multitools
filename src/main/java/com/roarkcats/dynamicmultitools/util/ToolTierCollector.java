@@ -41,6 +41,6 @@ public class ToolTierCollector {
                 if (tier == null) {DynamicMultitools.LOGGER.warn("Tier not found: {}", str);}
                 return tier;
             },
-            Tier::toString
+            tier -> tier.toString().toLowerCase()
     );
 }
