@@ -12,11 +12,8 @@
 
   "dynamic_tier.ethium_reimagined.ethium": "Ethium",
 
-  "dynamic_multitools.configuration.title": "Example Mod Configs",
-  "dynamic_multitools.configuration.section.examplemod.common.toml": "Example Mod Configs",
-  "dynamic_multitools.configuration.section.examplemod.common.toml.title": "Example Mod Configs",
-  "dynamic_multitools.configuration.items": "Item List",
-  "dynamic_multitools.configuration.logDirtBlock": "Log Dirt Block",
-  "dynamic_multitools.configuration.magicNumberIntroduction": "Magic Number Text",
-  "dynamic_multitools.configuration.magicNumber": "Magic Number"
+  "dynamic_multitools.configuration.title": "Dynamic Multitools Config",
+  "dynamic_multitools.configuration.multitool_speed_multiplier": "Multitool Speed Multiplier",
+  "dynamic_multitools.configuration.multitool_durability_multiplier": "Multitool Durability Multiplier",
+  "dynamic_multitools.configuration.log_tiers": "Log All Tiers"
 }
