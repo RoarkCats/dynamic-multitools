@@ -15,6 +15,10 @@ public class Config {
             .comment("Applied to the tier's defined durability as a buff.")
             .defineInRange("multitool_durability_multiplier", 1.25, 0.0, 1024);
 
+    public static final ModConfigSpec.BooleanValue AXE_MULTITOOLS_DISABLE_SHIELD = BUILDER
+            .comment("Controls if multitools made with an axe can disable shields when used as a weapon.")
+            .define("axe_multitools_disable_shield", false);
+
     public static final ModConfigSpec.BooleanValue LOG_TIERS = BUILDER
             .comment("Whether to log all detected vanilla tool tiers and dynamic tiers on server setup.")
             .define("log_tiers", true);

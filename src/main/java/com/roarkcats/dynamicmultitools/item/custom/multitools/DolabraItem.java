@@ -5,6 +5,8 @@ import com.roarkcats.dynamicmultitools.datapack.DynamicTier;
 import com.roarkcats.dynamicmultitools.item.custom.DynamicDiggerItem;
 import com.roarkcats.dynamicmultitools.item.custom.DynamicTieredItem;
 import com.roarkcats.dynamicmultitools.util.Tags;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.component.Tool;
@@ -63,6 +65,11 @@ public class DolabraItem extends DynamicDiggerItem {
     @Override
     public boolean canPerformAction(ItemStack stack, ItemAbility itemAbility) {
         return DEFAULT_DOLABRA_ACTIONS.contains(itemAbility);
+    }
+
+    @Override
+    public boolean canDisableShield(ItemStack stack, ItemStack shield, LivingEntity entity, LivingEntity attacker) {
+        return Config.AXE_MULTITOOLS_DISABLE_SHIELD.getAsBoolean();
     }
 
 }
