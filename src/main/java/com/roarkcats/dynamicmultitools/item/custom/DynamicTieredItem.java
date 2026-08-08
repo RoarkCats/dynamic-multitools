@@ -5,12 +5,12 @@ import static com.roarkcats.dynamicmultitools.DynamicMultitools.MODID;
 import static com.roarkcats.dynamicmultitools.component.ModDataComponent.*;
 import static net.minecraft.core.component.DataComponents.*;
 
+import com.google.errorprone.annotations.ForOverride;
 import com.roarkcats.dynamicmultitools.Config;
 import com.roarkcats.dynamicmultitools.datapack.DynamicTier;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.component.DyedItemColor;
 import net.minecraft.world.item.crafting.Ingredient;
 
 import javax.annotation.Nullable;
@@ -32,7 +32,10 @@ public class DynamicTieredItem extends Item {
 
 
     // Tiered Instance Maker
-    public static ItemStack createTieredStack(ItemStack itemStack, DynamicTier tier, String itemType) {
+    @ForOverride
+    public ItemStack createTieredStack(DynamicTier tier) {return createTieredStack(tier, "UNDEFINED");}
+    public ItemStack createTieredStack(DynamicTier tier, String itemType) {
+        ItemStack itemStack = this.getDefaultInstance();
         try {
             itemStack.set(ITEM_NAME, Component.translatable("dynamic_tier." + tier.modId() + "." + tier.material()).append(" ").append(Component.translatable("item." + MODID + "." + itemType)));
             itemStack.set(TEXTURE_TINTS.get(), List.of(tier.rodColor(), tier.color()));
@@ -45,7 +48,6 @@ public class DynamicTieredItem extends Item {
         }
         return itemStack;
     }
-
 
     @Override
     public int getEnchantmentValue() {

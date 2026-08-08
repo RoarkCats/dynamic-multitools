@@ -16,7 +16,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         super(output, registries);
     }
 
-    @Override
+    @Override @Deprecated // ABANDONED FOR DYNAMIC GENERATION
     protected void buildRecipes(RecipeOutput recipeOutput) {
 
 //        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.DOLABRA.get())

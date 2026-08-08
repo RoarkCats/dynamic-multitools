@@ -6,63 +6,60 @@ import com.roarkcats.dynamicmultitools.item.custom.DynamicDiggerItem;
 import com.roarkcats.dynamicmultitools.item.custom.DynamicTieredItem;
 import com.roarkcats.dynamicmultitools.util.Tags;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.component.Tool;
 import net.neoforged.neoforge.common.ItemAbilities;
 import net.neoforged.neoforge.common.ItemAbility;
 
-import javax.annotation.Nullable;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import static com.roarkcats.dynamicmultitools.DynamicMultitools.LOGGER;
 import static net.minecraft.core.component.DataComponents.ATTRIBUTE_MODIFIERS;
 import static net.minecraft.core.component.DataComponents.TOOL;
 
-public class DolabraItem extends DynamicDiggerItem {
+public class AdzeItem extends DynamicDiggerItem {
 
-    public DolabraItem(DynamicTier tier, Properties properties) {
-        super(tier, dolabraTool(tier), properties.attributes(dolabraAttributes(tier)));
+    public AdzeItem(DynamicTier tier, Properties properties) {
+        super(tier, adzeTool(tier), properties.attributes(adzeAttributes(tier)));
     }
 
     // Helpers
-    public static Tool dolabraTool(DynamicTier tier) {
-        return DynamicDiggerItem.multitoolTool(tier, Tags.Blocks.MINEABLE_WITH_DOLABRA);
+    public static Tool adzeTool(DynamicTier tier) {
+        return DynamicDiggerItem.multitoolTool(tier, Tags.Blocks.MINEABLE_WITH_ADZE);
     }
-    public static ItemAttributeModifiers dolabraAttributes(DynamicTier tier) {
-        return DynamicDiggerItem.attributes(tier, 3F, -3.0F);
+    public static ItemAttributeModifiers adzeAttributes(DynamicTier tier) {
+        return DynamicDiggerItem.attributes(tier, 1F, -2.8F);
     }
 
     // Tiered Instance Maker
     public ItemStack createTieredStack(DynamicTier tier) {
-        ItemStack itemStack = super.createTieredStack(tier, "dolabra");
+        ItemStack itemStack = super.createTieredStack(tier, "adze");
         try {
-            itemStack.set(ATTRIBUTE_MODIFIERS, dolabraAttributes(tier));
-            itemStack.set(TOOL, dolabraTool(tier));
+            itemStack.set(ATTRIBUTE_MODIFIERS, adzeAttributes(tier));
+            itemStack.set(TOOL, adzeTool(tier));
         } catch (Exception e) {
-            LOGGER.error("Error creating DolabraItem for dynamic tier {}.{}: {}", tier.modId(), tier.material(), e);
+            LOGGER.error("Error creating AdzeItem for dynamic tier {}.{}: {}", tier.modId(), tier.material(), e);
         }
         return itemStack;
     }
 
     // Actions
-    public static final Set<ItemAbility> DEFAULT_DOLABRA_ACTIONS = new HashSet<>();
+    public static final Set<ItemAbility> DEFAULT_ADZE_ACTIONS = new HashSet<>();
     static {
-        DEFAULT_DOLABRA_ACTIONS.addAll(ItemAbilities.DEFAULT_PICKAXE_ACTIONS);
-        DEFAULT_DOLABRA_ACTIONS.addAll(ItemAbilities.DEFAULT_AXE_ACTIONS);
+        DEFAULT_ADZE_ACTIONS.addAll(ItemAbilities.DEFAULT_HOE_ACTIONS);
+        DEFAULT_ADZE_ACTIONS.addAll(ItemAbilities.DEFAULT_AXE_ACTIONS);
     }
 
     @Override
     public Set<ItemAbility> getItemAbilities() {
-        return DEFAULT_DOLABRA_ACTIONS;
+        return DEFAULT_ADZE_ACTIONS;
     }
 
     @Override
     public boolean canPerformAction(ItemStack stack, ItemAbility itemAbility) {
-        return DEFAULT_DOLABRA_ACTIONS.contains(itemAbility);
+        return DEFAULT_ADZE_ACTIONS.contains(itemAbility);
     }
 
     @Override

@@ -23,5 +23,9 @@ public class ModBlockTagProvider extends BlockTagsProvider {
         tag(Tags.Blocks.MINEABLE_WITH_DOLABRA)
                 .addTag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .addTag(BlockTags.MINEABLE_WITH_AXE);
+
+        tag(Tags.Blocks.MINEABLE_WITH_ADZE)
+                .addTag(BlockTags.MINEABLE_WITH_HOE)
+                .addTag(BlockTags.MINEABLE_WITH_AXE);
     }
 }

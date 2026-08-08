@@ -1,7 +1,6 @@
 package com.roarkcats.dynamicmultitools.item;
 
 import com.roarkcats.dynamicmultitools.datapack.DynamicTier;
-import com.roarkcats.dynamicmultitools.item.custom.multitools.DolabraItem;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -26,7 +25,10 @@ public class CreativeTab {
                 .displayItems((displayParameters, output) -> {
                     displayParameters.holders().lookup(DYNAMIC_TIER_REGISTRY).ifPresent(dynamicTierRegistry -> {
                         dynamicTierRegistry.listElements().map(Holder.Reference::value).sorted(Comparator.comparingDouble(DynamicTier::getSpeed)).forEach(tier -> {
-                            output.accept(DolabraItem.createTieredStack(ModItems.DOLABRA.toStack(), tier));
+
+                            ModItems.MULTITOOLS.stream().forEach(multitool -> {
+                                output.accept(multitool.get().createTieredStack(tier));
+                            });
                         });
                     });
                 }).build()

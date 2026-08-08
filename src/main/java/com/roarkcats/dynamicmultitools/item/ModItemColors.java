@@ -18,10 +18,7 @@ public class ModItemColors {
     @SubscribeEvent
     public static void registerItemColorHandlers(RegisterColorHandlersEvent.Item event) {
         // Parameters are the item stack and the tint index.
-        event.register(ModItemColors::getTintColorIfSet,
-                // items to tint
-                ModItems.DOLABRA
-        );
+        ModItems.MULTITOOLS.stream().forEach(item -> event.register(ModItemColors::getTintColorIfSet, item.get()));
     }
 
     // Helper

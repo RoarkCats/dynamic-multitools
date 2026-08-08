@@ -26,23 +26,22 @@ public class JeiModPlugin implements IModPlugin {
     @Override
     public void registerItemSubtypes(ISubtypeRegistration registration) {
 
-        registration.registerSubtypeInterpreter(
-                ModItems.DOLABRA.get(),
-                new ISubtypeInterpreter<ItemStack>() {
-                    @Override
-                    public @Nullable Object getSubtypeData(ItemStack ingredient, UidContext context) {
-                        var data = ingredient.get(DataComponents.ITEM_NAME);
-                        if (data != null) return data.hashCode();
-                        else return null;
-                    }
+        var subtypeInterpreter = new ISubtypeInterpreter<ItemStack>() {
+            @Override
+            public @Nullable Object getSubtypeData(ItemStack ingredient, UidContext context) {
+                var data = ingredient.get(DataComponents.ITEM_NAME);
+                if (data != null) return data.hashCode();
+                else return null;
+            }
 
-                    @Override
-                    public String getLegacyStringSubtypeInfo(ItemStack ingredient, UidContext context) {
-                        var data = ingredient.get(DataComponents.ITEM_NAME);
-                        if (data != null) return Integer.toHexString(data.hashCode());
-                        else return "";
-                    }
-                }
-        );
+            @Override
+            public String getLegacyStringSubtypeInfo(ItemStack ingredient, UidContext context) {
+                var data = ingredient.get(DataComponents.ITEM_NAME);
+                if (data != null) return Integer.toHexString(data.hashCode());
+                else return "";
+            }
+        };
+
+        ModItems.MULTITOOLS.stream().forEach(item -> registration.registerSubtypeInterpreter(item.get(), subtypeInterpreter));
     }
 }
