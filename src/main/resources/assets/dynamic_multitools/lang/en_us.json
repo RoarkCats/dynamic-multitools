@@ -15,6 +15,7 @@
   "dynamic_multitools.configuration.title": "Dynamic Multitools Config",
   "dynamic_multitools.configuration.multitool_speed_multiplier": "Multitool Speed Multiplier",
   "dynamic_multitools.configuration.multitool_durability_multiplier": "Multitool Durability Multiplier",
+  "dynamic_multitools.configuration.multitool_item_abilities": "Multitool Item Abilities",
   "dynamic_multitools.configuration.axe_multitools_disable_shield": "Axe Multitools Disable Shield",
   "dynamic_multitools.configuration.log_tiers": "Log All Tiers"
 }

@@ -1,5 +1,6 @@
 package com.roarkcats.dynamicmultitools.item.custom;
 
+import com.roarkcats.dynamicmultitools.Config;
 import com.roarkcats.dynamicmultitools.datapack.DynamicTier;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.component.DataComponents;
@@ -85,9 +86,11 @@ public class DynamicDiggerItem extends DynamicTieredItem {
 
     @Override
     public InteractionResult useOn(UseOnContext context) {
-        for (ItemAbility ability : getItemAbilities()) {
-            InteractionResult result = tryPerformToolAction(context, ability);
-            if (result != InteractionResult.PASS) return result;
+        if (Config.MULTITOOL_ITEM_ABILITIES.getAsBoolean()) {
+            for (ItemAbility ability : getItemAbilities()) {
+                InteractionResult result = tryPerformToolAction(context, ability);
+                if (result != InteractionResult.PASS) return result;
+            }
         }
         return super.useOn(context);
     }

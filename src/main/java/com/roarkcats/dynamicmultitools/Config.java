@@ -15,6 +15,10 @@ public class Config {
             .comment("Applied to the tier's defined durability as a buff.")
             .defineInRange("multitool_durability_multiplier", 1.25, 0.0, 1024);
 
+    public static final ModConfigSpec.BooleanValue MULTITOOL_ITEM_ABILITIES = BUILDER
+            .comment("Controls if multitools have item abilities. (Stripping, scraping, tilling, flattening, etc.)")
+            .define("multitool_item_abilities", true);
+
     public static final ModConfigSpec.BooleanValue AXE_MULTITOOLS_DISABLE_SHIELD = BUILDER
             .comment("Controls if multitools made with an axe can disable shields when used as a weapon.")
             .define("axe_multitools_disable_shield", false);
