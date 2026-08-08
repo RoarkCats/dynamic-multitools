@@ -2,6 +2,7 @@ package com.roarkcats.dynamicmultitools.item.custom;
 
 import com.roarkcats.dynamicmultitools.Config;
 import com.roarkcats.dynamicmultitools.datapack.DynamicTier;
+import com.roarkcats.dynamicmultitools.util.Tags;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.server.level.ServerPlayer;
@@ -42,7 +43,7 @@ public class DynamicDiggerItem extends DynamicTieredItem {
     }
 
 
-    // Helpers
+    // -- Helpers --
     public static ItemAttributeModifiers attributes(float attackDamage, float attackSpeed) {
         return ItemAttributeModifiers.builder()
                 .add(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_ID, (double) attackDamage, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)
@@ -53,6 +54,12 @@ public class DynamicDiggerItem extends DynamicTieredItem {
         return attributes(attackDamage + tier.getDamageBonus(), attackSpeed);
     }
 
+    public static Tool multitoolTool(DynamicTier tier, TagKey<Block> blocks) {
+        return tool(List.of(
+                toolRule(tier.getIncorrectBlocksForDrops()),
+                toolRule(blocks, tier.getSpeed() * Config.getConfigFloat(Config.MULTITOOL_SPEED_MULTIPLIER))
+        ));
+    }
     public static Tool tool(DynamicTier tier, TagKey<Block> blocks) {
         ArrayList<Tool.Rule> rules = new ArrayList<>( List.of(toolRule(blocks, tier.getSpeed())) );
         if (tier.getIncorrectBlocksForDrops() != null) rules.add(toolRule(tier.getIncorrectBlocksForDrops()));

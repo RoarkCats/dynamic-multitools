@@ -29,10 +29,7 @@ public class DolabraItem extends DynamicDiggerItem {
 
     // Helpers
     public static Tool dolabraTool(DynamicTier tier) {
-        return DynamicDiggerItem.tool(List.of(
-                DynamicDiggerItem.toolRule(tier.getIncorrectBlocksForDrops()),
-                DynamicDiggerItem.toolRule(Tags.Blocks.MINEABLE_WITH_DOLABRA, tier.getSpeed() * Config.getConfigFloat(Config.MULTITOOL_SPEED_MULTIPLIER))
-        ));
+        return DynamicDiggerItem.multitoolTool(tier, Tags.Blocks.MINEABLE_WITH_DOLABRA);
     }
     public static ItemAttributeModifiers dolabraAttributes(DynamicTier tier) {
         return DynamicDiggerItem.attributes(tier, 3F, -2.8F);
