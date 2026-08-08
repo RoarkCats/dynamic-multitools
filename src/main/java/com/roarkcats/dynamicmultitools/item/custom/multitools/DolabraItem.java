@@ -6,23 +6,20 @@ import com.roarkcats.dynamicmultitools.item.custom.DynamicDiggerItem;
 import com.roarkcats.dynamicmultitools.item.custom.DynamicTieredItem;
 import com.roarkcats.dynamicmultitools.util.Tags;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.component.DyedItemColor;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.component.Tool;
+import net.neoforged.neoforge.common.ItemAbilities;
+import net.neoforged.neoforge.common.ItemAbility;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static com.roarkcats.dynamicmultitools.DynamicMultitools.LOGGER;
 import static net.minecraft.core.component.DataComponents.ATTRIBUTE_MODIFIERS;
 import static net.minecraft.core.component.DataComponents.TOOL;
 
 public class DolabraItem extends DynamicDiggerItem {
-
-//    public static final Set<ItemAbility> DEFAULT_DOLABRA_ACTIONS = new HashSet<>();
-//    static { // this all doesn't seem to do much...
-//        DEFAULT_DOLABRA_ACTIONS.addAll(ItemAbilities.DEFAULT_PICKAXE_ACTIONS);
-//        DEFAULT_DOLABRA_ACTIONS.addAll(ItemAbilities.DEFAULT_AXE_ACTIONS);
-//    }
 
     public DolabraItem(DynamicTier tier, Properties properties) {
         super(tier, dolabraTool(tier), properties.attributes(dolabraAttributes(tier)));
@@ -51,7 +48,21 @@ public class DolabraItem extends DynamicDiggerItem {
         return itemStack;
     }
 
-//    public boolean canPerformAction(ItemStack stack, ItemAbility itemAbility) {
-//        return DEFAULT_DOLABRA_ACTIONS.contains(itemAbility);
-//    }
+    // Actions
+    public static final Set<ItemAbility> DEFAULT_DOLABRA_ACTIONS = new HashSet<>();
+    static {
+        DEFAULT_DOLABRA_ACTIONS.addAll(ItemAbilities.DEFAULT_PICKAXE_ACTIONS);
+        DEFAULT_DOLABRA_ACTIONS.addAll(ItemAbilities.DEFAULT_AXE_ACTIONS);
+    }
+
+    @Override
+    public Set<ItemAbility> getItemAbilities() {
+        return DEFAULT_DOLABRA_ACTIONS;
+    }
+
+    @Override
+    public boolean canPerformAction(ItemStack stack, ItemAbility itemAbility) {
+        return DEFAULT_DOLABRA_ACTIONS.contains(itemAbility);
+    }
+
 }
