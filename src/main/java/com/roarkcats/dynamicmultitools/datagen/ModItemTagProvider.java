@@ -23,7 +23,8 @@ public class ModItemTagProvider extends ItemTagsProvider {
     protected void addTags(HolderLookup.Provider provider) {
 
         tag(ItemTags.PICKAXES)
-                .add(ModItems.DOLABRA.get());
+                .add(ModItems.DOLABRA.get())
+                .add(ModItems.EXCAVATOR.get());
 
         tag(ItemTags.AXES)
                 .add(ModItems.DOLABRA.get())
@@ -36,6 +37,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
 
         tag(ItemTags.SHOVELS)
                 .add(ModItems.PULASKI.get())
-                .add(ModItems.MATTOCK.get());
+                .add(ModItems.MATTOCK.get())
+                .add(ModItems.EXCAVATOR.get());
     }
 }

@@ -26,7 +26,8 @@ public class Recipes {
             new MultitoolRecipe(ModItems.DOLABRA, "axe", "pickaxe"),
             new MultitoolRecipe(ModItems.ADZE, "axe", "hoe"),
             new MultitoolRecipe(ModItems.PULASKI, "axe", "shovel"),
-            new MultitoolRecipe(ModItems.MATTOCK, "shovel", "hoe")
+            new MultitoolRecipe(ModItems.MATTOCK, "shovel", "hoe"),
+            new MultitoolRecipe(ModItems.EXCAVATOR, "pickaxe", "shovel")
     );
 
     public static void craftingRecipe(List<RecipeHolder<?>> recipes, DynamicTier tier) {

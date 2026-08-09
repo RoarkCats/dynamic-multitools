@@ -35,5 +35,9 @@ public class ModBlockTagProvider extends BlockTagsProvider {
         tag(Tags.Blocks.MINEABLE_WITH_MATTOCK)
                 .addTag(BlockTags.MINEABLE_WITH_SHOVEL)
                 .addTag(BlockTags.MINEABLE_WITH_HOE);
+
+        tag(Tags.Blocks.MINEABLE_WITH_EXCAVATOR)
+                .addTag(BlockTags.MINEABLE_WITH_PICKAXE)
+                .addTag(BlockTags.MINEABLE_WITH_SHOVEL);
     }
 }

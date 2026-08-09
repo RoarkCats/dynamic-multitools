@@ -3,10 +3,7 @@ package com.roarkcats.dynamicmultitools.item;
 import com.roarkcats.dynamicmultitools.DynamicMultitools;
 import com.roarkcats.dynamicmultitools.datapack.DynamicTier;
 import com.roarkcats.dynamicmultitools.item.custom.DynamicDiggerItem;
-import com.roarkcats.dynamicmultitools.item.custom.multitools.AdzeItem;
-import com.roarkcats.dynamicmultitools.item.custom.multitools.DolabraItem;
-import com.roarkcats.dynamicmultitools.item.custom.multitools.MattockItem;
-import com.roarkcats.dynamicmultitools.item.custom.multitools.PulaskiItem;
+import com.roarkcats.dynamicmultitools.item.custom.multitools.*;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.PickaxeItem;
 import net.minecraft.world.item.Tiers;
@@ -25,9 +22,10 @@ public class ModItems {
     public static final DeferredItem<AdzeItem> ADZE = ITEMS.register("adze", () -> new AdzeItem(DEFAULT_TIER, new Item.Properties()));
     public static final DeferredItem<PulaskiItem> PULASKI = ITEMS.register("pulaski", () -> new PulaskiItem(DEFAULT_TIER, new Item.Properties()));
     public static final DeferredItem<MattockItem> MATTOCK = ITEMS.register("mattock", () -> new MattockItem(DEFAULT_TIER, new Item.Properties()));
+    public static final DeferredItem<ExcavatorItem> EXCAVATOR = ITEMS.register("excavator", () -> new ExcavatorItem(DEFAULT_TIER, new Item.Properties()));
 
     public static final Set<DeferredItem<? extends DynamicDiggerItem>> MULTITOOLS = Set.of(
-            DOLABRA, ADZE, PULASKI, MATTOCK
+            DOLABRA, ADZE, PULASKI, MATTOCK, EXCAVATOR
     );
 
     public static void register(IEventBus eventBus) {
