@@ -31,7 +31,7 @@ public class ModItemModelProvider extends ItemModelProvider {
     // Override Helper
     // provides N unused custom model pointers for ease of use
     public ItemModelBuilder overrideHelper(String name, int count, ItemModelBuilder model) {
-        for (int i=0; i<count; i++) {
+        for (int i=1; i<count+1; i++) {
             model.override()
                     .predicate(ResourceLocation.fromNamespaceAndPath("minecraft","custom_model_data"), i)
                     .model(new ModelFile.UncheckedModelFile(modLoc("item/"+i+"/"+name))).end();
@@ -41,14 +41,13 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        overrideHelper("dolabra", 10,
-        layerlessItem(ModItems.DOLABRA.get())
-                .texture("layer0", modLoc("item/tools/dolabra_rod"))
-                .texture("layer1", modLoc("item/tools/dolabra_head")));
 
-        overrideHelper("adze", 10,
-        layerlessItem(ModItems.ADZE.get())
-                .texture("layer0", modLoc("item/tools/adze_rod"))
-                .texture("layer1", modLoc("item/tools/adze_head")));
+        ModItems.MULTITOOLS.stream().forEach(multitool -> {
+            String name = multitool.getId().getPath();
+            overrideHelper(name, 9,
+            layerlessItem(multitool.get())
+                    .texture("layer0", modLoc("item/tools/"+name+"_rod"))
+                    .texture("layer1", modLoc("item/tools/"+name+"_head")));
+        });
     }
 }

@@ -12,6 +12,7 @@ public class Tags {
     public static class Blocks {
         public static final TagKey<Block> MINEABLE_WITH_DOLABRA = createTag("mineable/dolabra");
         public static final TagKey<Block> MINEABLE_WITH_ADZE = createTag("mineable/adze");
+        public static final TagKey<Block> MINEABLE_WITH_PULASKI = createTag("mineable/pulaski");
 
         private static TagKey<Block> createTag(String name) {
             return BlockTags.create(ResourceLocation.fromNamespaceAndPath(MODID, name));

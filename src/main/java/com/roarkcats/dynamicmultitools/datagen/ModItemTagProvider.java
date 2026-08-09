@@ -27,9 +27,13 @@ public class ModItemTagProvider extends ItemTagsProvider {
 
         tag(ItemTags.AXES)
                 .add(ModItems.DOLABRA.get())
-                .add(ModItems.ADZE.get());
+                .add(ModItems.ADZE.get())
+                .add(ModItems.PULASKI.get());
 
         tag(ItemTags.HOES)
                 .add(ModItems.ADZE.get());
+
+        tag(ItemTags.SHOVELS)
+                .add(ModItems.PULASKI.get());
     }
 }

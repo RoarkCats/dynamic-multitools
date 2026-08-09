@@ -24,7 +24,8 @@ public class Recipes {
 
     public static final Set<MultitoolRecipe> MULTITOOL_RECIPES = Set.of(
             new MultitoolRecipe(ModItems.DOLABRA, "axe", "pickaxe"),
-            new MultitoolRecipe(ModItems.ADZE, "axe", "hoe")
+            new MultitoolRecipe(ModItems.ADZE, "axe", "hoe"),
+            new MultitoolRecipe(ModItems.PULASKI, "axe", "shovel")
     );
 
     public static void craftingRecipe(List<RecipeHolder<?>> recipes, DynamicTier tier) {
