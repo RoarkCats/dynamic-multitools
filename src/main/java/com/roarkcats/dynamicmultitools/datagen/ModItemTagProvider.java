@@ -31,9 +31,11 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.PULASKI.get());
 
         tag(ItemTags.HOES)
-                .add(ModItems.ADZE.get());
+                .add(ModItems.ADZE.get())
+                .add(ModItems.MATTOCK.get());
 
         tag(ItemTags.SHOVELS)
-                .add(ModItems.PULASKI.get());
+                .add(ModItems.PULASKI.get())
+                .add(ModItems.MATTOCK.get());
     }
 }

@@ -94,7 +94,7 @@ public class DynamicDiggerItem extends DynamicTieredItem {
     @Override
     public InteractionResult useOn(UseOnContext context) {
         if (Config.MULTITOOL_ITEM_ABILITIES.getAsBoolean()) {
-            for (ItemAbility ability : getItemAbilities()) {
+            for (ItemAbility ability : getItemAbilities()) { // TODO: FIX ORDER RANDOMIZES FOR TILL/PATH PRIORITY
                 InteractionResult result = tryPerformToolAction(context, ability);
                 if (result != InteractionResult.PASS) return result;
             }
@@ -135,18 +135,16 @@ public class DynamicDiggerItem extends DynamicTieredItem {
         else if (ability.equals(ItemAbilities.AXE_WAX_OFF)) sound = SoundEvents.AXE_WAX_OFF;
         else if (ability.equals(ItemAbilities.HOE_TILL)) sound = SoundEvents.HOE_TILL;
         else if (ability.equals(ItemAbilities.SHOVEL_FLATTEN)) sound = SoundEvents.SHOVEL_FLATTEN;
-        else if (ability.equals(ItemAbilities.SHOVEL_DOUSE)) sound = SoundEvents.GENERIC_EXTINGUISH_FIRE;
 
         if (sound != null) context.getLevel().playSound(context.getPlayer(), context.getClickedPos(), sound, SoundSource.BLOCKS, 1.0F, 1.0F);
-        else LOGGER.debug("Unknown sound missing definition for ItemAbility: {}", ability);
+//        else LOGGER.debug("Unknown sound missing definition for ItemAbility: {}", ability);
     }
 
     protected void particlesFor(UseOnContext context, ItemAbility ability) {
         int levelEvent = 0;
         if (ability.equals(ItemAbilities.AXE_SCRAPE)) levelEvent = LevelEvent.PARTICLES_SCRAPE;
         else if (ability.equals(ItemAbilities.AXE_WAX_OFF)) levelEvent = LevelEvent.PARTICLES_WAX_OFF;
-//        else if (ability.equals(ItemAbilities.HOE_TILL)) levelEvent = LevelEvent.PARTICLES_DESTROY_BLOCK;
-//        else if (ability.equals(ItemAbilities.SHOVEL_DOUSE)) levelEvent = LevelEvent.PARTICLES_SHOOT_SMOKE;
+        else if (ability.equals(ItemAbilities.SHOVEL_DOUSE)) levelEvent = LevelEvent.SOUND_EXTINGUISH_FIRE; // this is the proper way, too loud when played with play sound, would need 0.5F, 2.0F vol/pitch
 
         if (levelEvent != 0) context.getLevel().levelEvent(context.getPlayer(), levelEvent, context.getClickedPos(), 0);
     }

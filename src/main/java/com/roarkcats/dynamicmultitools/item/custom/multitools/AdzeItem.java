@@ -30,7 +30,7 @@ public class AdzeItem extends DynamicDiggerItem {
         return DynamicDiggerItem.multitoolTool(tier, Tags.Blocks.MINEABLE_WITH_ADZE);
     }
     public static ItemAttributeModifiers adzeAttributes(DynamicTier tier) {
-        return DynamicDiggerItem.attributes(tier, 1F, -2.8F);
+        return DynamicDiggerItem.attributes(tier, 0.5F, -2F);
     }
 
     // Tiered Instance Maker
