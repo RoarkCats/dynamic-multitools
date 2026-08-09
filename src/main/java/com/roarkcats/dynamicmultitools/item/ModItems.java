@@ -23,9 +23,10 @@ public class ModItems {
     public static final DeferredItem<PulaskiItem> PULASKI = ITEMS.register("pulaski", () -> new PulaskiItem(DEFAULT_TIER, new Item.Properties()));
     public static final DeferredItem<MattockItem> MATTOCK = ITEMS.register("mattock", () -> new MattockItem(DEFAULT_TIER, new Item.Properties()));
     public static final DeferredItem<ExcavatorItem> EXCAVATOR = ITEMS.register("excavator", () -> new ExcavatorItem(DEFAULT_TIER, new Item.Properties()));
+    public static final DeferredItem<SarchielloItem> SARCHIELLO = ITEMS.register("sarchiello", () -> new SarchielloItem(DEFAULT_TIER, new Item.Properties()));
 
     public static final Set<DeferredItem<? extends DynamicDiggerItem>> MULTITOOLS = Set.of(
-            DOLABRA, ADZE, PULASKI, MATTOCK, EXCAVATOR
+            DOLABRA, ADZE, PULASKI, MATTOCK, EXCAVATOR, SARCHIELLO
     );
 
     public static void register(IEventBus eventBus) {

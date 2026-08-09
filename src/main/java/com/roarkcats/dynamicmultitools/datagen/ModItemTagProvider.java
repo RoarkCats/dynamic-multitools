@@ -24,7 +24,8 @@ public class ModItemTagProvider extends ItemTagsProvider {
 
         tag(ItemTags.PICKAXES)
                 .add(ModItems.DOLABRA.get())
-                .add(ModItems.EXCAVATOR.get());
+                .add(ModItems.EXCAVATOR.get())
+                .add(ModItems.SARCHIELLO.get());
 
         tag(ItemTags.AXES)
                 .add(ModItems.DOLABRA.get())
@@ -33,7 +34,8 @@ public class ModItemTagProvider extends ItemTagsProvider {
 
         tag(ItemTags.HOES)
                 .add(ModItems.ADZE.get())
-                .add(ModItems.MATTOCK.get());
+                .add(ModItems.MATTOCK.get())
+                .add(ModItems.SARCHIELLO.get());
 
         tag(ItemTags.SHOVELS)
                 .add(ModItems.PULASKI.get())
