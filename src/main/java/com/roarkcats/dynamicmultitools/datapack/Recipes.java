@@ -19,7 +19,6 @@ public class Recipes {
     public static void generateRecipesFor(List<RecipeHolder<?>> recipes, DynamicTier tier) {
         craftingRecipe(recipes, tier);
         smithingRecipe(recipes, tier);
-        // TODO: Recipe granting advancements
     }
 
     public static final Set<MultitoolRecipe> MULTITOOL_RECIPES = Set.of(
@@ -34,7 +33,7 @@ public class Recipes {
     public static void craftingRecipe(List<RecipeHolder<?>> recipes, DynamicTier tier) {
         MULTITOOL_RECIPES.stream().forEach(multitoolRecipe -> {
             var recipe = new ShapedRecipe(
-                    "",
+                    tier.material()+"_multitools",
                     CraftingBookCategory.EQUIPMENT,
                     ShapedRecipePattern.of(
                         Map.of('L', multitoolRecipe.getTool1Ingredient(tier),
