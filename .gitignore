@@ -40,4 +40,4 @@ repo/
 !**/src/**/repo/
 
 ### Misc ###
-gallery
+gallery/*.psd
