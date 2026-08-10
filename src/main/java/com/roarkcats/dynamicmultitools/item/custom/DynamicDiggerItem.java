@@ -93,7 +93,7 @@ public class DynamicDiggerItem extends DynamicTieredItem {
     @Override
     public InteractionResult useOn(UseOnContext context) {
         if (Config.MULTITOOL_ITEM_ABILITIES.getAsBoolean()) {
-            for (ItemAbility ability : getItemAbilities()) { // TODO: FIX ORDER RANDOMIZES FOR TILL/PATH PRIORITY
+            for (ItemAbility ability : getItemAbilities()) {
                 InteractionResult result = tryPerformToolAction(context, ability);
                 if (result != InteractionResult.PASS) return result;
             }
