@@ -1,6 +1,7 @@
 {
   "material": "netherite",
   "tier_base": "netherite",
-  "color": 7626094,
-  "rod_color": 12358071
+  "default_components": {
+    "custom_model_data": 1
+  }
 }

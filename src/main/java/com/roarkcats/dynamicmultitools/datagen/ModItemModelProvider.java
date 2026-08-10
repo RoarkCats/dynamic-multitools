@@ -34,7 +34,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         for (int i=1; i<count+1; i++) {
             model.override()
                     .predicate(ResourceLocation.fromNamespaceAndPath("minecraft","custom_model_data"), i)
-                    .model(new ModelFile.UncheckedModelFile(modLoc("item/"+i+"/"+name))).end();
+                    .model(new ModelFile.UncheckedModelFile(modLoc("item/tools"+i+"/"+name))).end();
         }
         return model;
     }
@@ -48,6 +48,11 @@ public class ModItemModelProvider extends ItemModelProvider {
             layerlessItem(multitool.get())
                     .texture("layer0", modLoc("item/tools/"+name+"_rod"))
                     .texture("layer1", modLoc("item/tools/"+name+"_head")));
+
+            // Netherite custom textures
+            layerlessItem(modLoc("item/tools1/"+name))
+                    .texture("layer0", modLoc("item/tools1/"+name+"_rod"))
+                    .texture("layer1", modLoc("item/tools1/"+name+"_head"));
         });
     }
 }

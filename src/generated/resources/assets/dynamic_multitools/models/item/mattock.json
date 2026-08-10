@@ -2,55 +2,55 @@
   "parent": "minecraft:item/handheld",
   "overrides": [
     {
-      "model": "dynamic_multitools:item/1/mattock",
+      "model": "dynamic_multitools:item/tools1/mattock",
       "predicate": {
         "minecraft:custom_model_data": 1.0
       }
     },
     {
-      "model": "dynamic_multitools:item/2/mattock",
+      "model": "dynamic_multitools:item/tools2/mattock",
       "predicate": {
         "minecraft:custom_model_data": 2.0
       }
     },
     {
-      "model": "dynamic_multitools:item/3/mattock",
+      "model": "dynamic_multitools:item/tools3/mattock",
       "predicate": {
         "minecraft:custom_model_data": 3.0
       }
     },
     {
-      "model": "dynamic_multitools:item/4/mattock",
+      "model": "dynamic_multitools:item/tools4/mattock",
       "predicate": {
         "minecraft:custom_model_data": 4.0
       }
     },
     {
-      "model": "dynamic_multitools:item/5/mattock",
+      "model": "dynamic_multitools:item/tools5/mattock",
       "predicate": {
         "minecraft:custom_model_data": 5.0
       }
     },
     {
-      "model": "dynamic_multitools:item/6/mattock",
+      "model": "dynamic_multitools:item/tools6/mattock",
       "predicate": {
         "minecraft:custom_model_data": 6.0
       }
     },
     {
-      "model": "dynamic_multitools:item/7/mattock",
+      "model": "dynamic_multitools:item/tools7/mattock",
       "predicate": {
         "minecraft:custom_model_data": 7.0
       }
     },
     {
-      "model": "dynamic_multitools:item/8/mattock",
+      "model": "dynamic_multitools:item/tools8/mattock",
       "predicate": {
         "minecraft:custom_model_data": 8.0
       }
     },
     {
-      "model": "dynamic_multitools:item/9/mattock",
+      "model": "dynamic_multitools:item/tools9/mattock",
       "predicate": {
         "minecraft:custom_model_data": 9.0
       }

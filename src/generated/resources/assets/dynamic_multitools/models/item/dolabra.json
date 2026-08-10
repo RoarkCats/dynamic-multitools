@@ -2,55 +2,55 @@
   "parent": "minecraft:item/handheld",
   "overrides": [
     {
-      "model": "dynamic_multitools:item/1/dolabra",
+      "model": "dynamic_multitools:item/tools1/dolabra",
       "predicate": {
         "minecraft:custom_model_data": 1.0
       }
     },
     {
-      "model": "dynamic_multitools:item/2/dolabra",
+      "model": "dynamic_multitools:item/tools2/dolabra",
       "predicate": {
         "minecraft:custom_model_data": 2.0
       }
     },
     {
-      "model": "dynamic_multitools:item/3/dolabra",
+      "model": "dynamic_multitools:item/tools3/dolabra",
       "predicate": {
         "minecraft:custom_model_data": 3.0
       }
     },
     {
-      "model": "dynamic_multitools:item/4/dolabra",
+      "model": "dynamic_multitools:item/tools4/dolabra",
       "predicate": {
         "minecraft:custom_model_data": 4.0
       }
     },
     {
-      "model": "dynamic_multitools:item/5/dolabra",
+      "model": "dynamic_multitools:item/tools5/dolabra",
       "predicate": {
         "minecraft:custom_model_data": 5.0
       }
     },
     {
-      "model": "dynamic_multitools:item/6/dolabra",
+      "model": "dynamic_multitools:item/tools6/dolabra",
       "predicate": {
         "minecraft:custom_model_data": 6.0
       }
     },
     {
-      "model": "dynamic_multitools:item/7/dolabra",
+      "model": "dynamic_multitools:item/tools7/dolabra",
       "predicate": {
         "minecraft:custom_model_data": 7.0
       }
     },
     {
-      "model": "dynamic_multitools:item/8/dolabra",
+      "model": "dynamic_multitools:item/tools8/dolabra",
       "predicate": {
         "minecraft:custom_model_data": 8.0
       }
     },
     {
-      "model": "dynamic_multitools:item/9/dolabra",
+      "model": "dynamic_multitools:item/tools9/dolabra",
       "predicate": {
         "minecraft:custom_model_data": 9.0
       }

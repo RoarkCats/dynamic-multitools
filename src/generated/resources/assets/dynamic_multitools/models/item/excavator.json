@@ -2,55 +2,55 @@
   "parent": "minecraft:item/handheld",
   "overrides": [
     {
-      "model": "dynamic_multitools:item/1/excavator",
+      "model": "dynamic_multitools:item/tools1/excavator",
       "predicate": {
         "minecraft:custom_model_data": 1.0
       }
     },
     {
-      "model": "dynamic_multitools:item/2/excavator",
+      "model": "dynamic_multitools:item/tools2/excavator",
       "predicate": {
         "minecraft:custom_model_data": 2.0
       }
     },
     {
-      "model": "dynamic_multitools:item/3/excavator",
+      "model": "dynamic_multitools:item/tools3/excavator",
       "predicate": {
         "minecraft:custom_model_data": 3.0
       }
     },
     {
-      "model": "dynamic_multitools:item/4/excavator",
+      "model": "dynamic_multitools:item/tools4/excavator",
       "predicate": {
         "minecraft:custom_model_data": 4.0
       }
     },
     {
-      "model": "dynamic_multitools:item/5/excavator",
+      "model": "dynamic_multitools:item/tools5/excavator",
       "predicate": {
         "minecraft:custom_model_data": 5.0
       }
     },
     {
-      "model": "dynamic_multitools:item/6/excavator",
+      "model": "dynamic_multitools:item/tools6/excavator",
       "predicate": {
         "minecraft:custom_model_data": 6.0
       }
     },
     {
-      "model": "dynamic_multitools:item/7/excavator",
+      "model": "dynamic_multitools:item/tools7/excavator",
       "predicate": {
         "minecraft:custom_model_data": 7.0
       }
     },
     {
-      "model": "dynamic_multitools:item/8/excavator",
+      "model": "dynamic_multitools:item/tools8/excavator",
       "predicate": {
         "minecraft:custom_model_data": 8.0
       }
     },
     {
-      "model": "dynamic_multitools:item/9/excavator",
+      "model": "dynamic_multitools:item/tools9/excavator",
       "predicate": {
         "minecraft:custom_model_data": 9.0
       }
