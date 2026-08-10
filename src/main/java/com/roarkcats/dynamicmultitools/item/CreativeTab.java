@@ -26,7 +26,7 @@ public class CreativeTab {
                     displayParameters.holders().lookup(DYNAMIC_TIER_REGISTRY).ifPresent(dynamicTierRegistry -> {
                         dynamicTierRegistry.listElements().map(Holder.Reference::value).sorted(Comparator.comparingDouble(DynamicTier::getSpeed)).forEach(tier -> {
 
-                            ModItems.MULTITOOLS.stream().forEach(multitool -> {
+                            ModItems.MULTITOOLS.stream().forEachOrdered(multitool -> {
                                 output.accept(multitool.get().createTieredStack(tier));
                             });
                         });

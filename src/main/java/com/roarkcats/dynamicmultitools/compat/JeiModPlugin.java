@@ -42,6 +42,6 @@ public class JeiModPlugin implements IModPlugin {
             }
         };
 
-        ModItems.MULTITOOLS.stream().forEach(item -> registration.registerSubtypeInterpreter(item.get(), subtypeInterpreter));
+        ModItems.MULTITOOLS.stream().forEachOrdered(item -> registration.registerSubtypeInterpreter(item.get(), subtypeInterpreter));
     }
 }

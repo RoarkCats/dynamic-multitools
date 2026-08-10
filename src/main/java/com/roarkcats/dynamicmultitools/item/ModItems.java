@@ -5,13 +5,12 @@ import com.roarkcats.dynamicmultitools.datapack.DynamicTier;
 import com.roarkcats.dynamicmultitools.item.custom.DynamicDiggerItem;
 import com.roarkcats.dynamicmultitools.item.custom.multitools.*;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.PickaxeItem;
 import net.minecraft.world.item.Tiers;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-import java.util.Set;
+import java.util.List;
 
 public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(DynamicMultitools.MODID);
@@ -25,8 +24,8 @@ public class ModItems {
     public static final DeferredItem<ExcavatorItem> EXCAVATOR = ITEMS.register("excavator", () -> new ExcavatorItem(DEFAULT_TIER, new Item.Properties()));
     public static final DeferredItem<SarchielloItem> SARCHIELLO = ITEMS.register("sarchiello", () -> new SarchielloItem(DEFAULT_TIER, new Item.Properties()));
 
-    public static final Set<DeferredItem<? extends DynamicDiggerItem>> MULTITOOLS = Set.of(
-            DOLABRA, ADZE, PULASKI, MATTOCK, EXCAVATOR, SARCHIELLO
+    public static final List<DeferredItem<? extends DynamicDiggerItem>> MULTITOOLS = List.of(
+            DOLABRA, PULASKI, MATTOCK, ADZE, SARCHIELLO, EXCAVATOR
     );
 
     public static void register(IEventBus eventBus) {
