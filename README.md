@@ -5,7 +5,7 @@
 🔗 Retains all **innate functionality** of both original tools (tilling/scraping/stripping etc).<br>
 🔨 Upgrade existing tools to **transfer enchantments** and other data over.<br>
 🧪 Add custom tool tiers for **data-driven mod support** with a single file!<br>
-💭 Loosly inspired by the multitools added in Matcha Flavored
+💭 Loosely inspired by the multitools added in Matcha Flavored
 
 ## Mod Support
 
@@ -23,16 +23,16 @@ Create an issue request to add additional builtin compats
 ## Questions
 
 > **How do I add custom modded tool tiers?**
-> 
-> wip
+>
+> Custom multitool tiers can be easily added with a single data pack JSON file! Read more on the [wiki](https://github.com/RoarkCats/dynamic-multitools/wiki/Dynamic-Tiers) for documentation on adding new tiers.
 
-> **How can I change the builtin tool tiers?**
-> 
-> Use any data pack overriding the same namespaced path as the default data files provided in the mod to modify their values! (ex: `Pack/data/dynamic_multitools/dynamic_multitools/dynamic_tier/<tier>.json`)
+> **How can I change or disable the builtin tool tiers?**
+>
+> Any data pack can override or disable the same file path used by the mod's default data files provided as desired! Read more on the [wiki](https://github.com/RoarkCats/dynamic-multitools/wiki/Dynamic-Tiers#overriding).
 
 > **Is there non-tinted texture support?**
-> 
-> Yes! By using model overrides with custom model data and the dynamic tier components field you can implement any custom texture variants for your multitool tiers! Read more on the wiki.
+>
+> Yes! By using model overrides with custom model data and the dynamic tier components field you can implement any custom texture variants for your multitool tiers! Read more on the [wiki](https://github.com/RoarkCats/dynamic-multitools/wiki/Texture-Overrides).
 
 > **I changed the configs but my tool hasn't changed!**
 >
