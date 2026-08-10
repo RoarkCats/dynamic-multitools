@@ -11,7 +11,7 @@ import net.minecraft.world.item.component.Tool;
 import net.neoforged.neoforge.common.ItemAbilities;
 import net.neoforged.neoforge.common.ItemAbility;
 
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 import static com.roarkcats.dynamicmultitools.DynamicMultitools.LOGGER;
@@ -45,7 +45,7 @@ public class PulaskiItem extends DynamicDiggerItem {
     }
 
     // Actions
-    public static final Set<ItemAbility> DEFAULT_PULASKI_ACTIONS = new HashSet<>();
+    public static final Set<ItemAbility> DEFAULT_PULASKI_ACTIONS = new LinkedHashSet<>();
     static {
         DEFAULT_PULASKI_ACTIONS.addAll(ItemAbilities.DEFAULT_SHOVEL_ACTIONS);
         DEFAULT_PULASKI_ACTIONS.addAll(ItemAbilities.DEFAULT_AXE_ACTIONS);

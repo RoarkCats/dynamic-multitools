@@ -3,7 +3,6 @@ package com.roarkcats.dynamicmultitools.item.custom.multitools;
 import com.roarkcats.dynamicmultitools.Config;
 import com.roarkcats.dynamicmultitools.datapack.DynamicTier;
 import com.roarkcats.dynamicmultitools.item.custom.DynamicDiggerItem;
-import com.roarkcats.dynamicmultitools.item.custom.DynamicTieredItem;
 import com.roarkcats.dynamicmultitools.util.Tags;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
@@ -12,7 +11,7 @@ import net.minecraft.world.item.component.Tool;
 import net.neoforged.neoforge.common.ItemAbilities;
 import net.neoforged.neoforge.common.ItemAbility;
 
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 import static com.roarkcats.dynamicmultitools.DynamicMultitools.LOGGER;
@@ -46,7 +45,7 @@ public class AdzeItem extends DynamicDiggerItem {
     }
 
     // Actions
-    public static final Set<ItemAbility> DEFAULT_ADZE_ACTIONS = new HashSet<>();
+    public static final Set<ItemAbility> DEFAULT_ADZE_ACTIONS = new LinkedHashSet<>();
     static {
         DEFAULT_ADZE_ACTIONS.addAll(ItemAbilities.DEFAULT_HOE_ACTIONS);
         DEFAULT_ADZE_ACTIONS.addAll(ItemAbilities.DEFAULT_AXE_ACTIONS);

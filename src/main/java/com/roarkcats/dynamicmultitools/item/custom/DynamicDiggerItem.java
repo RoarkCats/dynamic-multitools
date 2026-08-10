@@ -2,7 +2,6 @@ package com.roarkcats.dynamicmultitools.item.custom;
 
 import com.roarkcats.dynamicmultitools.Config;
 import com.roarkcats.dynamicmultitools.datapack.DynamicTier;
-import com.roarkcats.dynamicmultitools.util.Tags;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.server.level.ServerPlayer;

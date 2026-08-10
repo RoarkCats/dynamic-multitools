@@ -1,17 +1,15 @@
 package com.roarkcats.dynamicmultitools.item.custom.multitools;
 
-import com.roarkcats.dynamicmultitools.Config;
 import com.roarkcats.dynamicmultitools.datapack.DynamicTier;
 import com.roarkcats.dynamicmultitools.item.custom.DynamicDiggerItem;
 import com.roarkcats.dynamicmultitools.util.Tags;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.component.Tool;
 import net.neoforged.neoforge.common.ItemAbilities;
 import net.neoforged.neoforge.common.ItemAbility;
 
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 import static com.roarkcats.dynamicmultitools.DynamicMultitools.LOGGER;
@@ -45,7 +43,7 @@ public class SarchielloItem extends DynamicDiggerItem {
     }
 
     // Actions
-    public static final Set<ItemAbility> DEFAULT_SARCHIELLO_ACTIONS = new HashSet<>();
+    public static final Set<ItemAbility> DEFAULT_SARCHIELLO_ACTIONS = new LinkedHashSet<>();
     static {
         DEFAULT_SARCHIELLO_ACTIONS.addAll(ItemAbilities.DEFAULT_HOE_ACTIONS);
         DEFAULT_SARCHIELLO_ACTIONS.addAll(ItemAbilities.DEFAULT_PICKAXE_ACTIONS);

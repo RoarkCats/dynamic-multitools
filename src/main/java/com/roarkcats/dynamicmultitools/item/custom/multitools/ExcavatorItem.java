@@ -9,7 +9,7 @@ import net.minecraft.world.item.component.Tool;
 import net.neoforged.neoforge.common.ItemAbilities;
 import net.neoforged.neoforge.common.ItemAbility;
 
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 import static com.roarkcats.dynamicmultitools.DynamicMultitools.LOGGER;
@@ -43,7 +43,7 @@ public class ExcavatorItem extends DynamicDiggerItem {
     }
 
     // Actions
-    public static final Set<ItemAbility> DEFAULT_EXCAVATOR_ACTIONS = new HashSet<>();
+    public static final Set<ItemAbility> DEFAULT_EXCAVATOR_ACTIONS = new LinkedHashSet<>();
     static {
         DEFAULT_EXCAVATOR_ACTIONS.addAll(ItemAbilities.DEFAULT_PICKAXE_ACTIONS);
         DEFAULT_EXCAVATOR_ACTIONS.addAll(ItemAbilities.DEFAULT_SHOVEL_ACTIONS);
