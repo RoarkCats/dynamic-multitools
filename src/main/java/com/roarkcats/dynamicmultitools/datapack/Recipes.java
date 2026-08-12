@@ -2,9 +2,13 @@ package com.roarkcats.dynamicmultitools.datapack;
 
 import com.roarkcats.dynamicmultitools.item.ModItems;
 import com.roarkcats.dynamicmultitools.item.custom.DynamicDiggerItem;
+import net.minecraft.core.component.DataComponentPredicate;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
+import net.neoforged.neoforge.common.crafting.DataComponentIngredient;
 import net.neoforged.neoforge.registries.DeferredItem;
 
 import javax.annotation.Nullable;
@@ -13,11 +17,12 @@ import java.util.Map;
 import java.util.Set;
 
 import static com.roarkcats.dynamicmultitools.DynamicMultitools.MODID;
+import static com.roarkcats.dynamicmultitools.datapack.Server.DYNAMIC_TIER_REGISTRY;
 
 // Organization helper class
 public class Recipes {
-    public static void generateRecipesFor(List<RecipeHolder<?>> recipes, DynamicTier tier) {
-        craftingRecipe(recipes, tier);
+    public static void generateRecipesFor(List<RecipeHolder<?>> recipes, DynamicTier tier, MinecraftServer server) {
+        craftingRecipe(recipes, tier, server);
         smithingRecipe(recipes, tier);
     }
 
@@ -30,20 +35,34 @@ public class Recipes {
             new MultitoolRecipe(ModItems.SARCHIELLO, "pickaxe", "hoe")
     );
 
-    public static void craftingRecipe(List<RecipeHolder<?>> recipes, DynamicTier tier) {
+    public static void craftingRecipe(List<RecipeHolder<?>> recipes, DynamicTier tier, MinecraftServer server) {
+        final boolean SMITHING_UPGRADEABLE = tier.isSmithingUpgradeable();
         MULTITOOL_RECIPES.stream().forEach(multitoolRecipe -> {
-            var recipe = new ShapedRecipe(
-                    tier.material()+"_multitools",
-                    CraftingBookCategory.EQUIPMENT,
-                    ShapedRecipePattern.of(
-                        Map.of('L', multitoolRecipe.getTool1Ingredient(tier),
-                            'R', multitoolRecipe.getTool2Ingredient(tier),
-                            'm', tier.getMaterialIngredient(),
-                            's', tier.rodIngredient()),
-                        List.of("LmR"," s "," s ")
-                    ),
-                    multitoolRecipe.multitool().get().createTieredStack(tier)
-            );
+            Recipe<?> recipe;
+            if (!SMITHING_UPGRADEABLE) {
+                recipe = new ShapedRecipe(
+                        tier.material()+"_multitools",
+                        CraftingBookCategory.EQUIPMENT,
+                        ShapedRecipePattern.of(
+                                Map.of('L', multitoolRecipe.getTool1Ingredient(tier),
+                                        'R', multitoolRecipe.getTool2Ingredient(tier),
+                                        'm', tier.getMaterialIngredient(),
+                                        's', tier.rodIngredient()),
+                                List.of("LmR"," s "," s ")
+                        ),
+                        multitoolRecipe.multitool().get().createTieredStack(tier)
+                );
+            } else {
+                var multitool = multitoolRecipe.multitool().get();
+                var upgradeFromTier = server.registryAccess().registryOrThrow(DYNAMIC_TIER_REGISTRY).get(tier.smithingUpgradeFromTier().get());
+
+                recipe = new SmithingTransformRecipe(
+                        tier.smithingUpgradeIngredient().get(),
+                        getDataComponentPatchIngredient(multitool.createTieredStack(upgradeFromTier)),
+                        tier.getMaterialIngredient(),
+                        multitool.createTieredStack(tier)
+                );
+            }
             recipes.add(new RecipeHolder<>(multitoolRecipe.getRecipeId(tier, null), recipe));
         });
     }
@@ -83,5 +102,10 @@ public class Recipes {
             if (type != null) return ResourceLocation.fromNamespaceAndPath(MODID, path+"_"+type);
             else return ResourceLocation.fromNamespaceAndPath(MODID, path);
         }
+    }
+
+    public static Ingredient getDataComponentPatchIngredient(ItemStack itemStack) {
+        var predicate = DataComponentPredicate.allOf(itemStack.getComponentsPatch().split().added());
+        return DataComponentIngredient.of(false, predicate, itemStack.getItem());
     }
 }

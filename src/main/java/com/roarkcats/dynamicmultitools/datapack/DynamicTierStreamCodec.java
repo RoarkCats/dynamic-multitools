@@ -10,6 +10,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.crafting.Ingredient;
 
+@Deprecated
 public class DynamicTierStreamCodec {
 
     //  -- UNUSED --
@@ -53,6 +54,8 @@ public class DynamicTierStreamCodec {
         // Extras
         ByteBufCodecs.optional(Ingredient.CONTENTS_STREAM_CODEC).encode(buf, value.materialIngredient());
         Ingredient.CONTENTS_STREAM_CODEC.encode(buf, value.rodIngredient());
+        ByteBufCodecs.optional(Ingredient.CONTENTS_STREAM_CODEC).encode(buf, value.smithingUpgradeIngredient());
+        ByteBufCodecs.optional(ResourceLocation.STREAM_CODEC).encode(buf, value.smithingUpgradeFromTier());
         DataComponentPatch.STREAM_CODEC.encode(buf, value.defaultComponents());
     }
 
@@ -85,6 +88,8 @@ public class DynamicTierStreamCodec {
                 // Extras
                 ByteBufCodecs.optional(Ingredient.CONTENTS_STREAM_CODEC).decode(buf),
                 Ingredient.CONTENTS_STREAM_CODEC.decode(buf),
+                ByteBufCodecs.optional(Ingredient.CONTENTS_STREAM_CODEC).decode(buf),
+                ByteBufCodecs.optional(ResourceLocation.STREAM_CODEC).decode(buf),
                 DataComponentPatch.STREAM_CODEC.decode(buf)
         );
     }

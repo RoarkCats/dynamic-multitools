@@ -1,7 +1,12 @@
 {
   "material": "netherite",
   "tier_base": "netherite",
+  "smithing_upgrade_ingredient": {
+    "item": "netherite_upgrade_smithing_template"
+  },
+  "smithing_upgrade_from_tier": "dynamic_multitools:diamond",
   "default_components": {
-    "custom_model_data": 1
+    "custom_model_data": 1,
+    "dynamic_multitools:texture_tints": []
   }
 }

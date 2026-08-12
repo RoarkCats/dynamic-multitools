@@ -5,6 +5,7 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.roarkcats.dynamicmultitools.util.ToolTierCollector;
 import net.minecraft.core.component.DataComponentPatch;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -32,8 +33,9 @@ public record DynamicTier(
         // Extras
         Optional<Ingredient> materialIngredient,
         Ingredient rodIngredient,
+        Optional<Ingredient> smithingUpgradeIngredient,
+        Optional<ResourceLocation> smithingUpgradeFromTier,
         DataComponentPatch defaultComponents
-//        String texture,
 //        Ingredient pickaxeItem,
 //        Ingredient axeItem,
 //        Ingredient shovelItem,
@@ -56,6 +58,8 @@ public record DynamicTier(
             Ingredient.CODEC.optionalFieldOf("repair_ingredient").forGetter(DynamicTier::repairIngredient),
             Ingredient.CODEC.optionalFieldOf("material_ingredient").forGetter(DynamicTier::materialIngredient),
             Ingredient.CODEC.optionalFieldOf("rod_ingredient", DEFAULT_ROD).forGetter(DynamicTier::rodIngredient),
+            Ingredient.CODEC.optionalFieldOf("smithing_upgrade_ingredient").forGetter(DynamicTier::smithingUpgradeIngredient),
+            ResourceLocation.CODEC.optionalFieldOf("smithing_upgrade_from_tier").forGetter(DynamicTier::smithingUpgradeFromTier),
             DataComponentPatch.CODEC.optionalFieldOf("default_components", DataComponentPatch.EMPTY).forGetter(DynamicTier::defaultComponents)
     ).apply(instance, DynamicTier::new));
 
@@ -64,7 +68,7 @@ public record DynamicTier(
     private static final Optional X = Optional.empty();
 
     public DynamicTier(String modId, String material, int color, Tier tierBase) {
-        this(modId, material, color, -1, Optional.of(tierBase), X,X,X,X,X,X,X, DEFAULT_ROD, DataComponentPatch.EMPTY);
+        this(modId, material, color, -1, Optional.of(tierBase), X,X,X,X,X,X,X, DEFAULT_ROD, X,X, DataComponentPatch.EMPTY);
     }
 
     // -- Getters --
@@ -96,5 +100,9 @@ public record DynamicTier(
 
     public Ingredient getMaterialIngredient() throws NoSuchElementException {
         return materialIngredient.orElseGet(this::getRepairIngredient);
+    }
+
+    public boolean isSmithingUpgradeable() {
+        return smithingUpgradeIngredient.isPresent() && smithingUpgradeFromTier.isPresent();
     }
 }

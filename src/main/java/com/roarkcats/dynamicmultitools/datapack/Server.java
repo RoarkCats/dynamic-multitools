@@ -51,7 +51,7 @@ public class Server {
 
         server.registryAccess().registryOrThrow(DYNAMIC_TIER_REGISTRY).forEach((tier) -> {
             if (logTiers) LOGGER.info("DYNAMIC TIER >> {}", tier.material());
-            Recipes.generateRecipesFor(generatedRecipes, tier);
+            Recipes.generateRecipesFor(generatedRecipes, tier, server);
 //            RecipeAdvancements.generateRecipesFor(generatedAdvancements, tier, advancementManager.get(RecipeBuilder.ROOT_RECIPE_ADVANCEMENT));
         });
 
