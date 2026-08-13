@@ -1,0 +1,17 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "betternether"
+    }
+  ],
+  "mod_id": "betternether",
+  "material": "cincinnasite",
+  "tier_base": "cincinnasite",
+  "rod_ingredient": {
+    "item": "betternether:nether_reed_stem"
+  },
+  "default_components": {
+    "custom_model_data": 3
+  }
+}

@@ -53,6 +53,12 @@ public class ModItemModelProvider extends ItemModelProvider {
             layerlessItem(modLoc("item/tools1/"+name))
                     .texture("layer0", modLoc("item/tools1/"+name+"_rod"))
                     .texture("layer1", modLoc("item/tools1/"+name+"_head"));
+
+            // Golden custom textures - custom model 2 reserved
+
+            // Cincinnasite custom textures
+            layerlessItem(modLoc("item/tools3/"+name))
+                    .texture("layer0", modLoc("item/tools3/"+name));
         });
     }
 }
