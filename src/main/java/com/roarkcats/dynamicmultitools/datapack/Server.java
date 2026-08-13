@@ -14,6 +14,7 @@ import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import net.neoforged.neoforge.registries.DataPackRegistryEvent;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -40,7 +41,8 @@ public class Server {
     public static void onServerStarting(ServerStartingEvent event) {
         LOGGER.info("Server starting");
         final boolean logTiers = Config.LOG_TIERS.getAsBoolean();
-        if (logTiers) ToolTierCollector.getAllTiers().forEach((tier) -> LOGGER.info("TIER >> {} || {}", tier, tier.getRepairIngredient().getItems()[0]));
+        if (logTiers) ToolTierCollector.getAllTiers().forEach(
+                tier -> LOGGER.info("TIER >> {} || {}", tier, Arrays.stream(tier.getRepairIngredient().getItems()).findFirst().orElse(null)));
 
         var server = event.getServer();
         var recipeManager = server.getRecipeManager();
