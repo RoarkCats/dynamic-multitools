@@ -5,16 +5,17 @@
 🔗 Retains all **innate functionality** of both original tools (tilling/scraping/stripping etc).<br>
 🔨 Upgrade existing tools to **transfer enchantments** and other data over.<br>
 🧪 Add custom tool tiers for **data-driven mod support** with a single file!<br>
-💭 Loosely inspired by the multitools added in Matcha Flavored
+🔎 Tool names and art draw on similar **real life counterparts**!<br>
+💭 Loosely inspired by the multitools added in Matcha Flavored.
 
 ## Mod Support
 
 Several popular modded tool tiers have **builtin compatability**:
 - [Aether](https://modrinth.com/mod/aether)
 - [Deep Aether](https://modrinth.com/mod/deep-aether)
-- [Better Nether](https://modrinth.com/mod/betternether-neoforge)
+- [Better Nether](https://modrinth.com/mod/betternether-neoforge) (textures by Ninja75312)
 - [Create Stuff 'N Additions](https://modrinth.com/mod/create-stuff-additions)
-- [Create Ethium Reimagined](https://modrinth.com/mod/ethium)
+- [Create Ethium Reimagined](https://modrinth.com/mod/ethium) (textures by Cashhew)
 - [Flint Required](https://modrinth.com/mod/flint-required)
 - [Unusual End](https://modrinth.com/mod/unusual_end)
 
