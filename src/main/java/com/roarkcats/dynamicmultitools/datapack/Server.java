@@ -40,7 +40,7 @@ public class Server {
     public static void onServerStarting(ServerStartingEvent event) {
         LOGGER.info("Server starting");
         final boolean logTiers = Config.LOG_TIERS.getAsBoolean();
-        if (logTiers) ToolTierCollector.getAllTiers().forEach((tier) -> LOGGER.info("TIER >> {}", tier));
+        if (logTiers) ToolTierCollector.getAllTiers().forEach((tier) -> LOGGER.info("TIER >> {} || {}", tier, tier.getRepairIngredient().getItems()[0]));
 
         var server = event.getServer();
         var recipeManager = server.getRecipeManager();
