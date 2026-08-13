@@ -12,8 +12,8 @@ public class ItemStackUpdates {
         itemStack.update(ATTRIBUTE_MODIFIERS, ItemAttributeModifiers.EMPTY, existing -> {
             var builder = ItemAttributeModifiers.builder();
 
-            // Copy existing attributes
-            existing.modifiers().forEach(e -> builder.add(e.attribute(), e.modifier(), e.slot()));
+            // Copy existing attributes (only if present, otherwise copies from default base multitool)
+            if (itemStack.getComponentsPatch().get(ATTRIBUTE_MODIFIERS) != null) existing.modifiers().forEach(e -> builder.add(e.attribute(), e.modifier(), e.slot()));
             // Append new attributes
             attributes.modifiers().forEach(e -> builder.add(e.attribute(), e.modifier(), e.slot()));
 
