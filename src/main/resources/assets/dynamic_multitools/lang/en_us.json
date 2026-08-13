@@ -17,6 +17,8 @@
 
   "dynamic_tier.ethium_reimagined.ethium": "Ethium",
   "dynamic_tier.betternether.cincinnasite": "Cincinnasite",
+  "dynamic_tier.flintrequired.flint": "Flint",
+  "dynamic_tier.unusualend.pearlescent": "Pearlescent",
 
   "dynamic_multitools.configuration.title": "Dynamic Multitools Config",
   "dynamic_multitools.configuration.multitool_speed_multiplier": "Multitool Speed Multiplier",

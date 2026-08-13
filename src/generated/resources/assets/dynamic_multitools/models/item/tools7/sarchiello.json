@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "dynamic_multitools:item/tools/sarchiello_rod",
+    "layer1": "dynamic_multitools:item/tools/sarchiello_head",
+    "layer2": "dynamic_multitools:item/tools_flint/sarchiello_binding"
+  }
+}

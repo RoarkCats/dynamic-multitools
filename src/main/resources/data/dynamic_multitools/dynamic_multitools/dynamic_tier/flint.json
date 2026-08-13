@@ -1,0 +1,15 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "flintrequired"
+    }
+  ],
+  "mod_id": "flintrequired",
+  "material": "flint",
+  "tier_base": "flint",
+  "color": 6841187,
+  "default_components": {
+    "custom_model_data": 7
+  }
+}

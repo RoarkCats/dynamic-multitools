@@ -56,9 +56,16 @@ public class ModItemModelProvider extends ItemModelProvider {
 
             // Golden custom textures - custom model data 2 reserved
 
-            // Better Nether custom textures
+            // Better Nether custom textures (3,4,5,6)
             layerlessItem(modLoc("item/tools3/"+name))
                     .texture("layer0", modLoc("item/tools_cincinnasite/"+name));
+
+            // Flint Required custom textures
+            layerlessItem(modLoc("item/tools7/"+name))
+                    .texture("layer0", modLoc("item/tools/"+name+"_rod"))
+                    .texture("layer1", modLoc("item/tools/"+name+"_head"))
+                    .texture("layer2", modLoc("item/tools_flint/"+name+"_binding"));
+
         });
     }
 }
