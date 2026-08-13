@@ -6,6 +6,7 @@
   },
   "smithing_upgrade_from_tier": "dynamic_multitools:diamond",
   "default_components": {
+    "fire_resistant": {},
     "custom_model_data": 1,
     "dynamic_multitools:texture_tints": []
   }
