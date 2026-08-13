@@ -2,6 +2,7 @@ package com.roarkcats.dynamicmultitools.item.custom.multitools;
 
 import com.roarkcats.dynamicmultitools.datapack.DynamicTier;
 import com.roarkcats.dynamicmultitools.item.custom.DynamicDiggerItem;
+import com.roarkcats.dynamicmultitools.util.ItemStackUpdates;
 import com.roarkcats.dynamicmultitools.util.Tags;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
@@ -13,7 +14,6 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 import static com.roarkcats.dynamicmultitools.DynamicMultitools.LOGGER;
-import static net.minecraft.core.component.DataComponents.ATTRIBUTE_MODIFIERS;
 import static net.minecraft.core.component.DataComponents.TOOL;
 
 public class MattockItem extends DynamicDiggerItem {
@@ -34,7 +34,7 @@ public class MattockItem extends DynamicDiggerItem {
     public ItemStack createTieredStack(DynamicTier tier) {
         ItemStack itemStack = super.createTieredStack(tier, "mattock");
         try {
-            itemStack.set(ATTRIBUTE_MODIFIERS, mattockAttributes(tier));
+            ItemStackUpdates.updateAttributes(itemStack, mattockAttributes(tier));
             itemStack.set(TOOL, mattockTool(tier));
         } catch (Exception e) {
             LOGGER.error("Error creating MattockItem for dynamic tier {}.{}: {}", tier.modId(), tier.material(), e);
