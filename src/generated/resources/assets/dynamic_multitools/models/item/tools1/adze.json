@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "dynamic_multitools:item/tools1/adze_rod",
-    "layer1": "dynamic_multitools:item/tools1/adze_head"
+    "layer0": "dynamic_multitools:item/tools_netherite/adze_rod",
+    "layer1": "dynamic_multitools:item/tools_netherite/adze_head"
   }
 }

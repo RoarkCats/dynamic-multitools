@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "dynamic_multitools:item/tools3/mattock"
+    "layer0": "dynamic_multitools:item/tools_cincinnasite/mattock"
   }
 }
