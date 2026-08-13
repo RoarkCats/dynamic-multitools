@@ -1,0 +1,26 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "ethium_reimagined"
+    }
+  ],
+  "mod_id": "ethium_reimagined",
+  "material": "ethium",
+  "durability": 3048,
+  "speed":  12.0,
+  "damage_bonus":  6.0,
+  "incorrect_blocks_for_drops":  "minecraft:incorrect_for_netherite_tool",
+  "enchantability":  18,
+  "repair_ingredient":  {
+    "item": "ethium_reimagined:ethium_ingot"
+  },
+  "smithing_upgrade_ingredient": {
+    "item": "ethium_reimagined:ethium_upgrade"
+  },
+  "smithing_upgrade_from_tier": "dynamic_multitools:netherite",
+  "default_components": {
+    "fire_resistant": {},
+    "custom_model_data": 9
+  }
+}
