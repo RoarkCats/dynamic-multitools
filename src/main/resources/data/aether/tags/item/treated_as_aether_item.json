@@ -1,0 +1,17 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "aether"
+    }
+  ],
+  "replace": false,
+  "values": [
+    "dynamic_multitools:dolabra",
+    "dynamic_multitools:adze",
+    "dynamic_multitools:mattock",
+    "dynamic_multitools:pulaski",
+    "dynamic_multitools:sarchiello",
+    "dynamic_multitools:excavator"
+  ]
+}

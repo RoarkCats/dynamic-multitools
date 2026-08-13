@@ -19,6 +19,13 @@
   "dynamic_tier.betternether.cincinnasite": "Cincinnasite",
   "dynamic_tier.flintrequired.flint": "Flint",
   "dynamic_tier.unusualend.pearlescent": "Pearlescent",
+  "dynamic_tier.aether.skyroot": "Skyroot",
+  "dynamic_tier.aether.holystone": "Holystone",
+  "dynamic_tier.aether.zanite": "Zanite",
+  "dynamic_tier.aether.gravitite": "Gravitite",
+  "dynamic_tier.aether.valkyrie": "Valkyrie",
+  "dynamic_tier.deep_aether.skyjade": "Skyjade",
+  "dynamic_tier.deep_aether.stratus": "Stratus",
 
   "dynamic_multitools.configuration.title": "Dynamic Multitools Config",
   "dynamic_multitools.configuration.multitool_speed_multiplier": "Multitool Speed Multiplier",

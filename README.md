@@ -11,12 +11,12 @@
 ## Mod Support
 
 Several popular modded tool tiers have **builtin compatability**:
-- [Aether](https://modrinth.com/mod/aether)
-- [Deep Aether](https://modrinth.com/mod/deep-aether)
+- [Aether](https://modrinth.com/mod/aether) (textures by RoarkCats)
+- [Deep Aether](https://modrinth.com/mod/deep-aether) (textures by RoarkCats)
 - [Better Nether](https://modrinth.com/mod/betternether-neoforge) (textures by Ninja75312)
 - [Create Stuff 'N Additions](https://modrinth.com/mod/create-stuff-additions)
 - [Create Ethium Reimagined](https://modrinth.com/mod/ethium) (textures by Cashhew)
-- [Flint Required](https://modrinth.com/mod/flint-required)
+- [Flint Required](https://modrinth.com/mod/flint-required) (textures by RoarkCats)
 - [Unusual End](https://modrinth.com/mod/unusual_end)
 
 Create an issue request to add additional builtin compats

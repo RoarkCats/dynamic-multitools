@@ -1,0 +1,18 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "aether"
+    }
+  ],
+  "mod_id": "aether",
+  "material": "gravitite",
+  "tier_base": "gravitite",
+  "rod_ingredient": {
+    "item": "aether:skyroot_stick"
+  },
+  "default_components": {
+    "custom_model_data": 8,
+    "dynamic_multitools:texture_tints": [-1, 15289824, 9405559]
+  }
+}

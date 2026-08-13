@@ -1,0 +1,18 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "aether"
+    }
+  ],
+  "mod_id": "aether",
+  "material": "holystone",
+  "tier_base": "holystone",
+  "rod_ingredient": {
+    "item": "aether:skyroot_stick"
+  },
+  "default_components": {
+    "custom_model_data": 8,
+    "dynamic_multitools:texture_tints": [-1, 10592673, 14077563]
+  }
+}

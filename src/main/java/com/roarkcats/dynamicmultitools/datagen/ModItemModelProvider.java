@@ -66,6 +66,12 @@ public class ModItemModelProvider extends ItemModelProvider {
                     .texture("layer1", modLoc("item/tools/"+name+"_head"))
                     .texture("layer2", modLoc("item/tools_flint/"+name+"_binding"));
 
+            // Aether custom textures
+            layerlessItem(modLoc("item/tools8/"+name))
+                    .texture("layer0", modLoc("item/tools_aether/"+name+"_rod"))
+                    .texture("layer1", modLoc("item/tools_aether/"+name+"_head"))
+                    .texture("layer2", modLoc("item/tools_aether/"+name+"_extra"));
+
         });
     }
 }
