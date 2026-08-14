@@ -1,0 +1,19 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "totemfactory"
+    }
+  ],
+  "mod_id": "totemfactory",
+  "material": "tumbaga",
+  "color": 16768649,
+  "durability": 220,
+  "speed":  12.0,
+  "damage_bonus":  2.0,
+  "incorrect_blocks_for_drops":  "minecraft:incorrect_for_iron_tool",
+  "enchantability":  14,
+  "repair_ingredient":  {
+    "item": "totemfactory:tumbaga_alloy"
+  }
+}

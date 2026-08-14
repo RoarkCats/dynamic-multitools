@@ -26,6 +26,10 @@
   "dynamic_tier.aether.valkyrie": "Valkyrie",
   "dynamic_tier.deep_aether.skyjade": "Skyjade",
   "dynamic_tier.deep_aether.stratus": "Stratus",
+  "dynamic_tier.totemfactory.tumbaga": "Tumbaga",
+  "dynamic_tier.create_sa.zinc": "Zinc",
+  "dynamic_tier.create_sa.copper": "Copper",
+  "dynamic_tier.create_sa.brass": "Brass",
 
   "dynamic_multitools.configuration.title": "Dynamic Multitools Config",
   "dynamic_multitools.configuration.multitool_speed_multiplier": "Multitool Speed Multiplier",
