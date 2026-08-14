@@ -12,6 +12,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -38,7 +39,7 @@ public class DynamicTieredItem extends Item {
         ItemStack itemStack = this.getDefaultInstance();
         try {
             itemStack.set(ITEM_NAME, Component.translatable("dynamic_tier." + tier.modId() + "." + tier.material()).append(" ").append(Component.translatable("item." + MODID + "." + itemType)));
-            itemStack.set(TEXTURE_TINTS.get(), List.of(tier.rodColor(), tier.color()));
+            itemStack.set(TEXTURE_TINTS, List.of(tier.rodColor(), tier.color()));
             itemStack.set(MAX_DAMAGE, (int) (tier.getDurability() * Config.getConfigFloat(Config.MULTITOOL_DURABILITY_MULTIPLIER)) );
             itemStack.set(ENCHANTABILITY, tier.getEnchantability());
             itemStack.set(REPAIR_MATERIAL, tier.getRepairIngredient());
@@ -50,8 +51,8 @@ public class DynamicTieredItem extends Item {
     }
 
     @Override
-    public int getEnchantmentValue() {
-        return this.components().getOrDefault(ENCHANTABILITY.get(), 15);
+    public int getEnchantmentValue(@NotNull ItemStack itemStack) {
+        return itemStack.getOrDefault(ENCHANTABILITY.get(), 15);
     }
 
     @Override
