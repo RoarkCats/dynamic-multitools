@@ -12,6 +12,7 @@
     "item": "betternether:nether_reed_stem"
   },
   "default_components": {
-    "custom_model_data": 3
+    "custom_model_data": 3,
+    "fire_resistant": {}
   }
 }

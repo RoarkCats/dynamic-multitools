@@ -17,6 +17,9 @@
 
   "dynamic_tier.ethium_reimagined.ethium": "Ethium",
   "dynamic_tier.betternether.cincinnasite": "Cincinnasite",
+  "dynamic_tier.betternether.cincinnasite_diamond": "Cincinnasite-Diamond",
+  "dynamic_tier.betternether.nether_ruby": "Nether Ruby",
+  "dynamic_tier.betternether.flaming_ruby": "Fireruby",
   "dynamic_tier.flintrequired.flint": "Flint",
   "dynamic_tier.unusualend.pearlescent": "Pearlescent",
   "dynamic_tier.aether.skyroot": "Skyroot",

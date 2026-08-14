@@ -1,0 +1,20 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "betternether"
+    }
+  ],
+  "mod_id": "betternether",
+  "material": "cincinnasite*diamond",
+  "tier_base": "cincinnasite_diamond",
+  "smithing_upgrade_ingredient": {
+    "item": "betternether:cincinnasite_diamond_upgrade_smithing_template"
+  },
+  "smithing_upgrade_from_tier": "dynamic_multitools:betternether/cincinnasite",
+  "default_components": {
+    "custom_model_data": 4,
+    "fire_resistant": {},
+    "enchantments": {"betternether:obsidian_breaker": 2}
+  }
+}
