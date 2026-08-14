@@ -38,7 +38,8 @@ public class DynamicTieredItem extends Item {
     public ItemStack createTieredStack(DynamicTier tier, String itemType) {
         ItemStack itemStack = this.getDefaultInstance();
         try {
-            itemStack.set(ITEM_NAME, Component.translatable("dynamic_tier." + tier.modId() + "." + tier.material()).append(" ").append(Component.translatable("item." + MODID + "." + itemType)));
+            itemStack.set(ITEM_NAME, Component.translatable("dynamic_tier." + tier.modId() + "." + tier.getFullMaterialString())
+                    .append(" ").append(Component.translatable("item." + MODID + "." + itemType)));
             itemStack.set(TEXTURE_TINTS, List.of(tier.rodColor(), tier.color()));
             itemStack.set(MAX_DAMAGE, (int) (tier.getDurability() * Config.getConfigFloat(Config.MULTITOOL_DURABILITY_MULTIPLIER)) );
             itemStack.set(ENCHANTABILITY, tier.getEnchantability());

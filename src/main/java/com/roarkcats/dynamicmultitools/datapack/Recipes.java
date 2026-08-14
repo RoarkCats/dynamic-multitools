@@ -41,7 +41,7 @@ public class Recipes {
             Recipe<?> recipe;
             if (!SMITHING_UPGRADEABLE) {
                 recipe = new ShapedRecipe(
-                        tier.material()+"_multitools",
+                        tier.getFullMaterialString()+"_multitools",
                         CraftingBookCategory.EQUIPMENT,
                         ShapedRecipePattern.of(
                                 Map.of('L', multitoolRecipe.getTool1Ingredient(tier),
@@ -92,13 +92,13 @@ public class Recipes {
     }
     public static record MultitoolRecipe(DeferredItem<? extends DynamicDiggerItem> multitool, String tool1, String tool2) {
         public Ingredient getTool1Ingredient(DynamicTier tier) {
-            return getIngredient(tier.modId(), tier.material()+"_"+tool1());
+            return getIngredient(tier.modId(), tier.getMaterialStringWithTool(tool1()));
         }
         public Ingredient getTool2Ingredient(DynamicTier tier) {
-            return getIngredient(tier.modId(), tier.material()+"_"+tool2());
+            return getIngredient(tier.modId(), tier.getMaterialStringWithTool(tool2()));
         }
         public ResourceLocation getRecipeId(DynamicTier tier, @Nullable String type) {
-            String path = tier.modId()+"_"+tier.material()+"_"+multitool().getId().getPath();
+            String path = tier.modId()+"_"+tier.getFullMaterialString()+"_"+multitool().getId().getPath();
             if (type != null) return ResourceLocation.fromNamespaceAndPath(MODID, path+"_"+type);
             else return ResourceLocation.fromNamespaceAndPath(MODID, path);
         }

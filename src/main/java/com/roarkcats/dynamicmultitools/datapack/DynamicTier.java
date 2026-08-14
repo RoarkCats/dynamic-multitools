@@ -5,6 +5,7 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.roarkcats.dynamicmultitools.util.ToolTierCollector;
 import net.minecraft.core.component.DataComponentPatch;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Tier;
@@ -36,10 +37,6 @@ public record DynamicTier(
         Optional<Ingredient> smithingUpgradeIngredient,
         Optional<ResourceLocation> smithingUpgradeFromTier,
         DataComponentPatch defaultComponents
-//        Ingredient pickaxeItem,
-//        Ingredient axeItem,
-//        Ingredient shovelItem,
-//        Ingredient hoeItem
 ) {
     private static final Ingredient DEFAULT_ROD = Ingredient.of(Tags.Items.RODS_WOODEN);
 
@@ -104,5 +101,16 @@ public record DynamicTier(
 
     public boolean isSmithingUpgradeable() {
         return smithingUpgradeIngredient.isPresent() && smithingUpgradeFromTier.isPresent();
+    }
+
+    public String getMaterialStringWithTool(String tool) {
+        var parts = material().split("\\*");
+
+        if (parts.length > 1) return String.format("%s_%s_%s", parts[0], tool, parts[1]);
+        else return material() + "_" + tool;
+    }
+
+    public String getFullMaterialString() {
+        return material().replaceFirst("\\*", "_");
     }
 }

@@ -41,12 +41,12 @@ public class RecipeAdvancements {
                 .addCriterion("has_material", InventoryChangeTrigger.TriggerInstance.hasItems(matchingItems))
                 .rewards(rewards.build())
                 .requirements(AdvancementRequirements.Strategy.OR)
-                .build(ResourceLocation.fromNamespaceAndPath(MODID, tier.modId()+"_"+tier.material()));
+                .build(ResourceLocation.fromNamespaceAndPath(MODID, tier.modId()+"_"+tier.getFullMaterialString()));
 
         advancements.add(advancement);
     }
 
     public static String recipeIdPath(DynamicTier tier, DeferredItem<?> item) {
-        return tier.modId()+"_"+tier.material()+"_"+item.getId().getPath();
+        return tier.modId()+"_"+tier.getFullMaterialString()+"_"+item.getId().getPath();
     }
 }
