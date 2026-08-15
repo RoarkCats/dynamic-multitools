@@ -1,4 +1,4 @@
-# <img src="src/main/resources/logo.png" alt="drawing" width="24"/> Contrasting Curses [![Modrinth Project](https://img.shields.io/modrinth/dt/4MInEhik?logo=modrinth&label=Modrinth&style=flat&labelColor=2D2D2D&color=555555)](https://modrinth.com/mod/dynamic-multitools)
+# <img src="src/main/resources/logo.png" alt="drawing" width="24"/> Contrasting Curses [![Modrinth Project](https://img.shields.io/modrinth/dt/4MInEhik?logo=modrinth&label=Modrinth&style=flat&labelColor=2D2D2D&color=555555)](https://modrinth.com/mod/dynamic-multitools) [![CurseForge Project](http://cf.way2muchnoise.eu/long_1653337_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/dynamic-multitools)
 
 ⚒️ Adds 6 simple multitool combinations, providing **two tools in one** to clear up hotbar space!<br>
 ⚖️ Balanced stats allow for **configurably decreased tool speed** and variable durability.<br>
