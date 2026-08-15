@@ -1,0 +1,23 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "betternether"
+    }
+  ],
+  "mod_id": "betternether",
+  "material": "flaming_ruby",
+  "tier_base": "flaming_ruby",
+  "material_ingredient": {
+    "item": "sculk_catalyst"
+  },
+  "smithing_upgrade_ingredient": {
+    "item": "betternether:flaming_ruby_upgrade_smithing_template"
+  },
+  "smithing_upgrade_from_tier": "dynamic_multitools:betternether/nether_ruby",
+  "default_components": {
+    "custom_model_data": 6,
+    "fire_resistant": {},
+    "enchantments": {"betternether:ruby_fire": 1, "betternether:obsidian_breaker": 3}
+  }
+}
