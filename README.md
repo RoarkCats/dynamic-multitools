@@ -41,10 +41,11 @@ Create an issue request to add additional builtin compats
 
 ## License
 
-Feel free to play, stream, or showcase this pack so long as visible credit is given.  
+Feel free to play, stream, or showcase this mod so long as visible credit is given.  
 This project can be packaged into any server or modpack so long as significant modifications are disclosed.  
-Do **not** redistribute or reupload this pack or its source code without permission.  
-Please link to one of the official pack pages instead of redistributing files.  
+Do **not** redistribute or reupload this mod or its source code without permission.  
+Please link to one of the official mod pages instead of redistributing files.  
+Dynamic tier addon projects are permitted so long as they do not package/reupload this mod.
 
 *Copyright © 2026 RoarkCats.*  
 *All rights reserved.* 
